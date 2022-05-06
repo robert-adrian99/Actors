@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actors>
+    <actor>
+        <name>Ryan Reynolds</name>
+        <category>Action</category>
+        <cityOfBirth>Vancouver, Canada</cityOfBirth>
+        <description>Ryan Rodney Reynolds was born on October 23, 1976 in Vancouver, British Columbia, Canada, the youngest of four children. His father, James Chester Reynolds, was a food wholesaler, and his mother, Tamara Lee "Tammy" (Stewart), worked as a retail-store saleswoman.</description>
+        <filmography>
+            <film>Deadpool 1</film>
+            <film>Deadpool 2</film>
+            <film>Deadpool 3</film>
+            <film>Free Guy</film>
+            <film>Red Notice</film>
+            <film>The Adam Project</film>
+            <film>6 Underground</film>
+        </filmography>
+        <age>46</age>
+        <images>
+            <image>ryanReynolds</image>
+            <image>ryanReynolds1</image>
+            <image>ryanReynolds2</image>
+            <image>ryanReynolds3</image>
+            <image>ryanReynolds4</image>
+            <image>ryanReynolds5</image>
+            <image>ryanReynolds6</image>
+            <image>ryanReynolds7</image>
+            <image>ryanReynolds8</image>
+            <image>ryanReynolds9</image>
+            <image>ryanReynolds10</image>
+            <image>ryanReynolds11</image>
+            <image>ryanReynolds12</image>
+            <image>ryanReynolds13</image>
+            <image>ryanReynolds14</image>
+        </images>
+        <phoneNo>+1 (415)555-2671</phoneNo>
+        <email>ryan.reynolds@yahoo.com</email>
+        <website>https://www.imdb.com/name/nm0005351/?ref_=nv_sr_srsg_0</website>
+    </actor>
+    <actor>
+        <name>Dwayne Johnson</name>
+        <category>Adventure</category>
+        <cityOfBirth>Hayward, California, USA</cityOfBirth>
+        <description>Dwayne Douglas Johnson, also known as The Rock, was born on May 2, 1972 in Hayward, California. He is the son of Ata Johnson (born Feagaimaleata Fitisemanu Maivia) and professional wrestler Rocky Johnson (born Wayde Douglas Bowles).</description>
+        <filmography>
+            <film>Jumanji</film>
+            <film>Jumanji: The next level</film>
+            <film>Journey 2</film>
+            <film>Jungle Cruise</film>
+            <film>Red Notice</film>
+            <film>Free Guy</film>
+            <film>Skyscraper</film>
+            <film>Baywatch</film>
+            <film>Fast and Furious</film>
+        </filmography>
+        <age>50</age>
+        <images>
+            <image>theRock</image>
+            <image>theRock1</image>
+            <image>theRock2</image>
+            <image>theRock3</image>
+            <image>theRock4</image>
+            <image>theRock5</image>
+            <image>theRock6</image>
+            <image>theRock7</image>
+            <image>theRock8</image>
+            <image>theRock9</image>
+            <image>theRock10</image>
+        </images>
+        <phoneNo>+1 (514)222-8271</phoneNo>
+        <email>dwayne.therock.johnson@yahoo.com</email>
+        <website>https://www.imdb.com/name/nm0425005/?ref_=fn_al_nm_1</website>
+    </actor>
+    <actor>
+        <name>Tom Holland</name>
+        <category>Action</category>
+        <cityOfBirth>Kingston upon Thames, England, UK</cityOfBirth>
+        <description>Thomas Stanley Holland was born in Kingston-upon-Thames, Surrey, to Nicola Elizabeth (Frost), a photographer, and Dominic Holland (Dominic Anthony Holland), who is a comedian and author. His paternal grandparents were from the Isle of Man and Ireland, respectively.</description>
+        <filmography>
+            <film>Uncharted</film>
+            <film>Spider-Man: No way home</film>
+            <film>Spider-Man: Far from home</film>
+            <film>The Devil All The Time</film>
+            <film>Avengers: Endgame</film>
+            <film>Avengers: Infinity War</film>
+            <film>Captain America: Civil War</film>
+        </filmography>
+        <age>26</age>
+        <images>
+            <image>tomHolland</image>
+            <image>tomHolland1</image>
+            <image>tomHolland2</image>
+            <image>tomHolland3</image>
+            <image>tomHolland4</image>
+            <image>tomHolland5</image>
+            <image>tomHolland6</image>
+            <image>tomHolland7</image>
+            <image>tomHolland8</image>
+            <image>tomHolland9</image>
+            <image>tomHolland10</image>
+            <image>tomHolland11</image>
+            <image>tomHolland12</image>
+            <image>tomHolland13</image>
+            <image>tomHolland14</image>
+            <image>tomHolland15</image>
+            <image>tomHolland16</image>
+        </images>
+        <phoneNo>+1 (234)263-8888</phoneNo>
+        <email>toma.holland@yahoo.com</email>
+        <website>https://www.imdb.com/name/nm4043618/?ref_=nv_sr_srsg_0</website>
+    </actor>
+    <actor>
+        <name>Zendaya</name>
+        <category>Drama</category>
+        <cityOfBirth>Oakland, California, USA</cityOfBirth>
+        <description>Zendaya (which means "to give thanks" in the language of Shona) is an American actress and singer born in Oakland, California. She began her career appearing as a child model working for Macy's, Mervyns and Old Navy.</description>
+        <filmography>
+            <film>Euphoria</film>
+            <film>Spider-Man: No way home</film>
+            <film>Spider-Man: Far from home</film>
+            <film>Dune</film>
+            <film>K.C. Undercover</film>
+            <film>The Greatest Showman</film>
+            <film>Shake It Up</film>
+        </filmography>
+        <age>26</age>
+        <images>
+            <image>zendaya</image>
+            <image>zendaya1</image>
+            <image>zendaya2</image>
+            <image>zendaya3</image>
+            <image>zendaya4</image>
+            <image>zendaya5</image>
+            <image>zendaya6</image>
+            <image>zendaya7</image>
+            <image>zendaya8</image>
+            <image>zendaya9</image>
+            <image>zendaya10</image>
+            <image>zendaya11</image>
+            <image>zendaya12</image>
+            <image>zendaya13</image>
+            <image>zendaya14</image>
+            <image>zendaya15</image>
+            <image>zendaya16</image>
+            <image>zendaya17</image>
+            <image>zendaya18</image>
+        </images>
+        <phoneNo>+1 (253)444-8273</phoneNo>
+        <email>zendaya@yahoo.com</email>
+        <website>https://www.imdb.com/name/nm3918035/?ref_=fn_al_nm_1</website>
+    </actor>
+    <actor>
+        <name>Mila Kunis</name>
+        <category>Drama</category>
+        <cityOfBirth>Chernovtsy, Ukraine</cityOfBirth>
+        <description>Mila Kunis was born Milena Markovna Kunis (Ukrainian: Milena Markivna Kunis, Russian: Milena Markovna Kunis) to a Jewish family in Chernivtsi, Ukraine, USSR (now independent Ukraine). The spoken language in her family is Russian, not Ukrainian.</description>
+        <filmography>
+            <film>A Spy Who Dumped Me</film>
+            <film>Wonder Park</film>
+            <film>Friends With Benefits</film>
+            <film>Ted</film>
+            <film>Forever Love</film>
+            <film>Black Swan</film>
+            <film>Extract</film>
+        </filmography>
+        <age>39</age>
+        <images>
+            <image>milaKunis</image>
+            <image>milaKunis1</image>
+            <image>milaKunis2</image>
+            <image>milaKunis3</image>
+            <image>milaKunis4</image>
+            <image>milaKunis5</image>
+            <image>milaKunis6</image>
+            <image>milaKunis7</image>
+            <image>milaKunis8</image>
+            <image>milaKunis9</image>
+            <image>milaKunis10</image>
+        </images>
+        <phoneNo>+1 (625)777-7261</phoneNo>
+        <email>mila.kunis@yahoo.com</email>
+        <website>https://www.imdb.com/name/nm0005109/?ref_=fn_al_nm_1</website>
+    </actor>
+    <actor>
+        <name>Angelina Jolie</name>
+        <category>Drama</category>
+        <cityOfBirth>Los Angeles, California, USA</cityOfBirth>
+        <description>Angelina Jolie is an Academy Award-winning actress who rose to fame after her role in Girl, Interrupted (1999), playing the title role in the "Lara Croft" blockbuster movies, as well as Mr. And Mrs. Smith (2005), Wanted (2008), Salt (2010) and Maleficent (2014).</description>
+        <filmography>
+            <film>Maleficent</film>
+            <film>Salt</film>
+            <film>Changeling</film>
+            <film>Girl, Interrupted</film>
+            <film>Come Away</film>
+            <film>Wanted</film>
+            <film>Mr. and Mrs. Smith</film>
+        </filmography>
+        <age>47</age>
+        <images>
+            <image>angelinaJolie</image>
+            <image>angelinaJolie1</image>
+            <image>angelinaJolie2</image>
+            <image>angelinaJolie3</image>
+            <image>angelinaJolie4</image>
+            <image>angelinaJolie5</image>
+            <image>angelinaJolie6</image>
+            <image>angelinaJolie7</image>
+            <image>angelinaJolie8</image>
+            <image>angelinaJolie9</image>
+            <image>angelinaJolie10</image>
+        </images>
+        <phoneNo>+1 (726)272-9832</phoneNo>
+        <email>angelina.jolie@yahoo.com</email>
+        <website>https://www.imdb.com/name/nm0001401/?ref_=nv_sr_srsg_0</website>
+    </actor>
+    <actor>
+        <name>Channing Tatum</name>
+        <category>Comedy</category>
+        <cityOfBirth>Cullman, Alabama, USA</cityOfBirth>
+        <description>Channing Tatum was born in a small town, Cullman, Alabama, 50 miles north of Birmingham. He is the son of Kay (Faust), an airline worker, and Glenn Matthew Tatum, who worked in construction.</description>
+        <filmography>
+            <film>Magic Mike</film>
+            <film>21 Jump Street</film>
+            <film>22 Jump Street</film>
+            <film>The Lost City</film>
+            <film>Free Guy</film>
+            <film>Kingsman: The Golden Circle</film>
+            <film>Fox Catcher</film>
+        </filmography>
+        <age>42</age>
+        <images>
+            <image>channingTatum</image>
+            <image>channingTatum1</image>
+            <image>channingTatum2</image>
+            <image>channingTatum3</image>
+            <image>channingTatum4</image>
+            <image>channingTatum5</image>
+            <image>channingTatum6</image>
+        </images>
+        <phoneNo>+1 (562)999-1234</phoneNo>
+        <email>channing.tatum@yahoo.com</email>
+        <website>https://www.imdb.com/name/nm1475594/?ref_=fn_al_nm_1</website>
+    </actor>
+    <actor>
+        <name>Sandra Bullock</name>
+        <category>Thriller</category>
+        <cityOfBirth>Arlington, Virginia, USA</cityOfBirth>
+        <description>Sandra Annette Bullock was born in Arlington, a Virginia suburb of Washington, D.C. Her mother, Helga Bullock (née Helga Mathilde Meyer), was a German opera singer. Her father, John W. Bullock, was an American voice teacher, who was born in Alabama, of German descent.</description>
+        <filmography>
+            <film>The Lost City</film>
+            <film>The Unforgivable</film>
+            <film>Bird Box</film>
+            <film>All About Steve</film>
+            <film>Sudbury</film>
+            <film>Gun Shy</film>
+            <film>Mailman</film>
+        </filmography>
+        <age>58</age>
+        <images>
+            <image>sandraBullock</image>
+            <image>sandraBullock1</image>
+            <image>sandraBullock2</image>
+            <image>sandraBullock3</image>
+            <image>sandraBullock4</image>
+            <image>sandraBullock5</image>
+            <image>sandraBullock6</image>
+        </images>
+        <phoneNo>+1 (253)888-9876</phoneNo>
+        <email>sandra.bullock@yahoo.com</email>
+        <website>https://www.imdb.com/name/nm0000113/?ref_=nv_sr_srsg_0</website>
+    </actor>
+    <actor>
+        <name>Ashton Kutcher</name>
+        <category>Comedy</category>
+        <cityOfBirth>Cedar Rapids, Iowa, USA</cityOfBirth>
+        <description>Christopher Ashton Kutcher was born on February 7, 1978 in Cedar Rapids, Iowa, to Diane (Finnegan), who was employed at Procter And Gamble, and Larry Kutcher, a factory worker. He has a fraternal twin brother, Michael, and a sister, Tausha.</description>
+        <filmography>
+            <film>Stoner Cats</film>
+            <film>The Ranch</film>
+            <film>Two And A Half Men</film>
+            <film>Annie</film>
+            <film>New Year's Eve</film>
+            <film>Killers</film>
+            <film>Spread</film>
+        </filmography>
+        <age>44</age>
+        <images>
+            <image>ashtonKutcher</image>
+            <image>ashtonKutcher1</image>
+            <image>ashtonKutcher2</image>
+            <image>ashtonKutcher3</image>
+            <image>ashtonKutcher4</image>
+            <image>ashtonKutcher5</image>
+            <image>ashtonKutcher6</image>
+        </images>
+        <phoneNo>+1 (625)234-8273</phoneNo>
+        <email>ashton.kutcher@yahoo.com</email>
+        <website>https://www.imdb.com/name/nm0005110/?ref_=nv_sr_srsg_0</website>
+    </actor>
+    <actor>
+        <name>Timothee Chalamet</name>
+        <category>Thriller</category>
+        <cityOfBirth>New York City, New York, USA</cityOfBirth>
+        <description>Timothee Hal Chalamet was born in Manhattan, to Nicole Flender, a real estate broker and dancer, and Marc Chalamet, a UNICEF editor. His mother, who is from New York, is Jewish, of Russian Jewish and Austrian Jewish descent. His father, who is from Nimes, France, is of French and English ancestry.</description>
+        <filmography>
+            <film>Dune</film>
+            <film>Call Me By Your Name</film>
+            <film>Lady Bird</film>
+            <film>Don't Look Up</film>
+            <film>Little Women</film>
+            <film>Beautiful Boy</film>
+            <film>The King</film>
+        </filmography>
+        <age>27</age>
+        <images>
+            <image>timotheeChalamet</image>
+            <image>timotheeChalamet1</image>
+            <image>timotheeChalamet2</image>
+            <image>timotheeChalamet3</image>
+            <image>timotheeChalamet4</image>
+            <image>timotheeChalamet5</image>
+            <image>timotheeChalamet6</image>
+        </images>
+        <phoneNo>+1 (222)3452-7263</phoneNo>
+        <email>timothee.chalamet@yahoo.com</email>
+        <website>https://www.imdb.com/name/nm3154303/?ref_=nv_sr_srsg_0</website>
+    </actor>
+    <actor>
+        <name>Leonardo DiCaprio</name>
+        <category>Thriller</category>
+        <cityOfBirth>Hollywood, Los Angeles, California, USA</cityOfBirth>
+        <description>Few actors in the world have had a career quite as diverse as Leonardo DiCaprio's. DiCaprio has gone from relatively humble beginnings, as a supporting cast member of the sitcom Growing Pains (1985) and low budget horror movies, such as Critters 3 (1991).</description>
+        <filmography>
+            <film>Titanic</film>
+            <film>Inception</film>
+            <film>The Wolf Of Wall Street</film>
+            <film>Ice on Fire</film>
+            <film>Robin Hood</film>
+            <film>Delirium</film>
+            <film>Don't look up</film>
+        </filmography>
+        <age>48</age>
+        <images>
+            <image>leoDicaprio</image>
+            <image>leoDicaprio1</image>
+            <image>leoDicaprio2</image>
+            <image>leoDicaprio3</image>
+            <image>leoDicaprio4</image>
+            <image>leoDicaprio5</image>
+            <image>leoDicaprio6</image>
+            <image>leoDicaprio7</image>
+            <image>leoDicaprio8</image>
+            <image>leoDicaprio9</image>
+            <image>leoDicaprio10</image>
+            <image>leoDicaprio11</image>
+            <image>leoDicaprio12</image>
+            <image>leoDicaprio13</image>
+            <image>leoDicaprio14</image>
+            <image>leoDicaprio15</image>
+            <image>leoDicaprio16</image>
+            <image>leoDicaprio17</image>
+            <image>leoDicaprio18</image>
+        </images>
+        <phoneNo>+1 (736)555-5263</phoneNo>
+        <email>leo.dicaprio@yahoo.com</email>
+        <website>https://www.imdb.com/name/nm0000138/</website>
+    </actor>
+    <actor>
+        <name>Jennifer Aniston</name>
+        <category>Comedy</category>
+        <cityOfBirth>Sherman Oaks, California, USA</cityOfBirth>
+        <description>Jennifer Aniston was born in Sherman Oaks, California, to actors John Aniston and Nancy Dow. Her father is Greek, and her mother was of English, Irish, Scottish, and Italian descent. Jennifer spent a year of her childhood living in Greece with her family.</description>
+        <filmography>
+            <film>Friends</film>
+            <film>Cake</film>
+            <film>We're the Millers</film>
+            <film>The Good Girl</film>
+            <film>Murder Mystery</film>
+            <film>Dumplin'</film>
+            <film>The Yellow Birds</film>
+        </filmography>
+        <age>53</age>
+        <images>
+            <image>jenniferAniston</image>
+            <image>jenniferAniston1</image>
+            <image>jenniferAniston2</image>
+            <image>jenniferAniston3</image>
+            <image>jenniferAniston4</image>
+            <image>jenniferAniston5</image>
+            <image>jenniferAniston6</image>
+            <image>jenniferAniston7</image>
+            <image>jenniferAniston8</image>
+            <image>jenniferAniston9</image>
+            <image>jenniferAniston10</image>
+            <image>jenniferAniston11</image>
+            <image>jenniferAniston12</image>
+            <image>jenniferAniston13</image>
+            <image>jenniferAniston14</image>
+            <image>jenniferAniston15</image>
+            <image>jenniferAniston16</image>
+            <image>jenniferAniston17</image>
+            <image>jenniferAniston18</image>
+        </images>
+        <phoneNo>+1 (237)333-6253</phoneNo>
+        <email>jennifer.aniston@yahoo.com</email>
+        <website>https://www.imdb.com/name/nm0000098/</website>
+    </actor>
+    <actor>
+        <name>Jennifer Lawrence</name>
+        <category>Drama</category>
+        <cityOfBirth>Louisville, Kentucky, USA</cityOfBirth>
+        <description>As the highest-paid actress in the world in 2015 and 2016, and with her films grossing over $5.5 billion worldwide, Jennifer Lawrence is often cited as the most successful actress of her generation. She is also the first person born in the 1990s to have won an acting Oscar.</description>
+        <filmography>
+            <film>Don't Look Up</film>
+            <film>The Hunger Games</film>
+            <film>American Hustle</film>
+            <film>X-Men: First Class</film>
+            <film>Red Sparrow</film>
+            <film>Mother</film>
+            <film>Passengers</film>
+        </filmography>
+        <age>53</age>
+        <images>
+            <image>jenniferLawrence</image>
+            <image>jenniferLawrence1</image>
+            <image>jenniferLawrence2</image>
+            <image>jenniferLawrence3</image>
+            <image>jenniferLawrence4</image>
+            <image>jenniferLawrence5</image>
+            <image>jenniferLawrence6</image>
+            <image>jenniferLawrence7</image>
+            <image>jenniferLawrence8</image>
+            <image>jenniferLawrence9</image>
+            <image>jenniferLawrence10</image>
+            <image>jenniferLawrence11</image>
+            <image>jenniferLawrence12</image>
+            <image>jenniferLawrence13</image>
+            <image>jenniferLawrence14</image>
+            <image>jenniferLawrence15</image>
+            <image>jenniferLawrence16</image>
+            <image>jenniferLawrence17</image>
+            <image>jenniferLawrence18</image>
+        </images>
+        <phoneNo>+1 (324)444-7263</phoneNo>
+        <email>jennifer.lawrence@yahoo.com</email>
+        <website>https://www.imdb.com/name/nm2225369/</website>
+    </actor>
+    <actor>
+        <name>Emma Watson</name>
+        <category>Drama</category>
+        <cityOfBirth>Paris, France</cityOfBirth>
+        <description>Emma Charlotte Duerre Watson was born in Paris, France, to British parents, Jacqueline Luesby and Chris Watson, both lawyers. She moved to Oxfordshire when she was five, where she attended the Dragon School.</description>
+        <filmography>
+            <film>Harry Poter</film>
+            <film>Beauty and the Beast</film>
+            <film>The Bling Ring</film>
+            <film>Little Women</film>
+            <film>The Circle</film>
+            <film>Noah</film>
+            <film>This Is The End</film>
+        </filmography>
+        <age>32</age>
+        <images>
+            <image>emmaWatson</image>
+            <image>emmaWatson1</image>
+            <image>emmaWatson2</image>
+            <image>emmaWatson3</image>
+            <image>emmaWatson4</image>
+            <image>emmaWatson5</image>
+            <image>emmaWatson6</image>
+            <image>emmaWatson7</image>
+            <image>emmaWatson8</image>
+            <image>emmaWatson9</image>
+            <image>emmaWatson10</image>
+            <image>emmaWatson11</image>
+            <image>emmaWatson12</image>
+            <image>emmaWatson13</image>
+            <image>emmaWatson14</image>
+            <image>emmaWatson15</image>
+            <image>emmaWatson16</image>
+            <image>emmaWatson17</image>
+            <image>emmaWatson18</image>
+        </images>
+        <phoneNo>+1 (213)322-7656</phoneNo>
+        <email>emma.watson@yahoo.com</email>
+        <website>https://www.imdb.com/name/nm0914612/</website>
+    </actor>
+</actors>
+

@@ -9,23 +9,37 @@
 /* Begin PBXBuildFile section */
 		662ED1772825A17A0076AFE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662ED1762825A17A0076AFE0 /* AppDelegate.swift */; };
 		662ED1792825A17A0076AFE0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662ED1782825A17A0076AFE0 /* SceneDelegate.swift */; };
-		662ED17B2825A17A0076AFE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662ED17A2825A17A0076AFE0 /* ViewController.swift */; };
-		662ED17E2825A17A0076AFE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 662ED17C2825A17A0076AFE0 /* Main.storyboard */; };
 		662ED1812825A17A0076AFE0 /* Actors.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 662ED17F2825A17A0076AFE0 /* Actors.xcdatamodeld */; };
 		662ED1832825A1800076AFE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 662ED1822825A1800076AFE0 /* Assets.xcassets */; };
 		662ED1862825A1800076AFE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 662ED1842825A1800076AFE0 /* LaunchScreen.storyboard */; };
+		662ED19B2825A25E0076AFE0 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662ED19A2825A25E0076AFE0 /* Actor.swift */; };
+		662ED19E2825A2740076AFE0 /* Actors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662ED19D2825A2740076AFE0 /* Actors.swift */; };
+		662ED1A22825A2A70076AFE0 /* XMLActorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662ED1A12825A2A70076AFE0 /* XMLActorParser.swift */; };
+		662ED1A62825A2D60076AFE0 /* actors.xml in Resources */ = {isa = PBXBuildFile; fileRef = 662ED1A52825A2D60076AFE0 /* actors.xml */; };
+		662ED1AA2825A3250076AFE0 /* ActorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662ED1A92825A3250076AFE0 /* ActorsTableViewController.swift */; };
+		662ED1AD2825A34C0076AFE0 /* ActorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662ED1AC2825A34C0076AFE0 /* ActorInfoViewController.swift */; };
+		662ED1B02825A38C0076AFE0 /* ActorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662ED1AF2825A38C0076AFE0 /* ActorDetailsViewController.swift */; };
+		662ED1B32825A3C30076AFE0 /* ActorWebsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662ED1B22825A3C30076AFE0 /* ActorWebsiteViewController.swift */; };
+		662ED1B72825A4920076AFE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 662ED1B62825A4910076AFE0 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		662ED1732825A17A0076AFE0 /* Actors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Actors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		662ED1762825A17A0076AFE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		662ED1782825A17A0076AFE0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		662ED17A2825A17A0076AFE0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		662ED17D2825A17A0076AFE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		662ED1802825A17A0076AFE0 /* Actors.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Actors.xcdatamodel; sourceTree = "<group>"; };
 		662ED1822825A1800076AFE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		662ED1852825A1800076AFE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		662ED1872825A1800076AFE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		662ED19A2825A25E0076AFE0 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
+		662ED19D2825A2740076AFE0 /* Actors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actors.swift; sourceTree = "<group>"; };
+		662ED1A12825A2A70076AFE0 /* XMLActorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLActorParser.swift; sourceTree = "<group>"; };
+		662ED1A52825A2D60076AFE0 /* actors.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = actors.xml; sourceTree = "<group>"; };
+		662ED1A92825A3250076AFE0 /* ActorsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsTableViewController.swift; sourceTree = "<group>"; };
+		662ED1AC2825A34C0076AFE0 /* ActorInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorInfoViewController.swift; sourceTree = "<group>"; };
+		662ED1AF2825A38C0076AFE0 /* ActorDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorDetailsViewController.swift; sourceTree = "<group>"; };
+		662ED1B22825A3C30076AFE0 /* ActorWebsiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorWebsiteViewController.swift; sourceTree = "<group>"; };
+		662ED1B62825A4910076AFE0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +72,71 @@
 		662ED1752825A17A0076AFE0 /* Actors */ = {
 			isa = PBXGroup;
 			children = (
-				662ED1762825A17A0076AFE0 /* AppDelegate.swift */,
-				662ED1782825A17A0076AFE0 /* SceneDelegate.swift */,
-				662ED17A2825A17A0076AFE0 /* ViewController.swift */,
-				662ED17C2825A17A0076AFE0 /* Main.storyboard */,
-				662ED1822825A1800076AFE0 /* Assets.xcassets */,
-				662ED1842825A1800076AFE0 /* LaunchScreen.storyboard */,
 				662ED1872825A1800076AFE0 /* Info.plist */,
-				662ED17F2825A17A0076AFE0 /* Actors.xcdatamodeld */,
+				662ED1822825A1800076AFE0 /* Assets.xcassets */,
+				662ED1A02825A2840076AFE0 /* Helpers */,
+				662ED1912825A1D40076AFE0 /* Data */,
+				662ED1972825A2030076AFE0 /* Models */,
+				662ED18E2825A1B50076AFE0 /* Lifecycle */,
+				662ED1902825A1C60076AFE0 /* Views */,
+				662ED1922825A1E00076AFE0 /* Controllers */,
 			);
 			path = Actors;
+			sourceTree = "<group>";
+		};
+		662ED18E2825A1B50076AFE0 /* Lifecycle */ = {
+			isa = PBXGroup;
+			children = (
+				662ED1762825A17A0076AFE0 /* AppDelegate.swift */,
+				662ED1782825A17A0076AFE0 /* SceneDelegate.swift */,
+			);
+			path = Lifecycle;
+			sourceTree = "<group>";
+		};
+		662ED1902825A1C60076AFE0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				662ED1B62825A4910076AFE0 /* Main.storyboard */,
+				662ED1842825A1800076AFE0 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		662ED1912825A1D40076AFE0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				662ED17F2825A17A0076AFE0 /* Actors.xcdatamodeld */,
+				662ED1A52825A2D60076AFE0 /* actors.xml */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		662ED1922825A1E00076AFE0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				662ED1A92825A3250076AFE0 /* ActorsTableViewController.swift */,
+				662ED1AC2825A34C0076AFE0 /* ActorInfoViewController.swift */,
+				662ED1AF2825A38C0076AFE0 /* ActorDetailsViewController.swift */,
+				662ED1B22825A3C30076AFE0 /* ActorWebsiteViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		662ED1972825A2030076AFE0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				662ED19A2825A25E0076AFE0 /* Actor.swift */,
+				662ED19D2825A2740076AFE0 /* Actors.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		662ED1A02825A2840076AFE0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				662ED1A12825A2A70076AFE0 /* XMLActorParser.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,8 +197,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				662ED1862825A1800076AFE0 /* LaunchScreen.storyboard in Resources */,
+				662ED1A62825A2D60076AFE0 /* actors.xml in Resources */,
 				662ED1832825A1800076AFE0 /* Assets.xcassets in Resources */,
-				662ED17E2825A17A0076AFE0 /* Main.storyboard in Resources */,
+				662ED1B72825A4920076AFE0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,24 +210,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				662ED17B2825A17A0076AFE0 /* ViewController.swift in Sources */,
+				662ED1B32825A3C30076AFE0 /* ActorWebsiteViewController.swift in Sources */,
 				662ED1772825A17A0076AFE0 /* AppDelegate.swift in Sources */,
 				662ED1792825A17A0076AFE0 /* SceneDelegate.swift in Sources */,
+				662ED19E2825A2740076AFE0 /* Actors.swift in Sources */,
+				662ED1AA2825A3250076AFE0 /* ActorsTableViewController.swift in Sources */,
+				662ED1AD2825A34C0076AFE0 /* ActorInfoViewController.swift in Sources */,
 				662ED1812825A17A0076AFE0 /* Actors.xcdatamodeld in Sources */,
+				662ED19B2825A25E0076AFE0 /* Actor.swift in Sources */,
+				662ED1B02825A38C0076AFE0 /* ActorDetailsViewController.swift in Sources */,
+				662ED1A22825A2A70076AFE0 /* XMLActorParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		662ED17C2825A17A0076AFE0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				662ED17D2825A17A0076AFE0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		662ED1842825A1800076AFE0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
