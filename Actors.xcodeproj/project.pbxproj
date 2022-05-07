@@ -21,6 +21,7 @@
 		662ED1B02825A38C0076AFE0 /* ActorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662ED1AF2825A38C0076AFE0 /* ActorDetailsViewController.swift */; };
 		662ED1B32825A3C30076AFE0 /* ActorWebsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662ED1B22825A3C30076AFE0 /* ActorWebsiteViewController.swift */; };
 		662ED1B72825A4920076AFE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 662ED1B62825A4910076AFE0 /* Main.storyboard */; };
+		66A6B5182826B8C300E74712 /* EditAddActorViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A6B5172826B8C300E74712 /* EditAddActorViewContoller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		662ED1AF2825A38C0076AFE0 /* ActorDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorDetailsViewController.swift; sourceTree = "<group>"; };
 		662ED1B22825A3C30076AFE0 /* ActorWebsiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorWebsiteViewController.swift; sourceTree = "<group>"; };
 		662ED1B62825A4910076AFE0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		66A6B5172826B8C300E74712 /* EditAddActorViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddActorViewContoller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				662ED1AC2825A34C0076AFE0 /* ActorInfoViewController.swift */,
 				662ED1AF2825A38C0076AFE0 /* ActorDetailsViewController.swift */,
 				662ED1B22825A3C30076AFE0 /* ActorWebsiteViewController.swift */,
+				66A6B5172826B8C300E74712 /* EditAddActorViewContoller.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				662ED1772825A17A0076AFE0 /* AppDelegate.swift in Sources */,
 				662ED1792825A17A0076AFE0 /* SceneDelegate.swift in Sources */,
 				662ED19E2825A2740076AFE0 /* Actors.swift in Sources */,
+				66A6B5182826B8C300E74712 /* EditAddActorViewContoller.swift in Sources */,
 				662ED1AA2825A3250076AFE0 /* ActorsTableViewController.swift in Sources */,
 				662ED1AD2825A34C0076AFE0 /* ActorInfoViewController.swift in Sources */,
 				662ED1812825A17A0076AFE0 /* Actors.xcdatamodeld in Sources */,

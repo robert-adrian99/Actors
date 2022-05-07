@@ -79,7 +79,7 @@
                     <navigationItem key="navigationItem" id="OQR-68-Qyw">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="nSl-3x-Lt0">
                             <connections>
-                                <segue destination="3cy-PQ-CqO" kind="show" id="aBp-iR-DBM"/>
+                                <segue destination="1Rn-Df-g47" kind="show" id="2mY-5g-dpn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -108,27 +108,11 @@
             </objects>
             <point key="canvasLocation" x="293" y="710"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="18t-5N-NBR">
-            <objects>
-                <viewController id="3cy-PQ-CqO" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vyC-Ga-UHQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="f5P-hQ-mOd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="FxV-uZ-Bba"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qxo-1f-WOA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2016" y="698"/>
-        </scene>
-        <!--All actors-->
+        <!--All Actors-->
         <scene sceneID="ObN-Ke-K06">
             <objects>
                 <navigationController id="Q5B-4d-Lks" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All actors" image="person.circle" catalog="system" id="rik-OC-i3R"/>
+                    <tabBarItem key="tabBarItem" title="All Actors" image="person.circle" catalog="system" id="rik-OC-i3R"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wFd-cH-lp9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -228,17 +212,10 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="HCY-eH-dt9">
-                        <barButtonItem key="rightBarButtonItem" id="tny-dV-tkz">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="glA-gp-zDX">
-                                <rect key="frame" x="362" y="6" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="info.circle" catalog="system">
-                                    <color key="titleColor" systemColor="linkColor"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Lry-Rc-AxA" kind="show" identifier="gotoActorDetails" id="TXZ-mh-sCv"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" image="info.circle" catalog="system" id="WWY-39-VCV">
+                            <connections>
+                                <segue destination="Lry-Rc-AxA" kind="show" identifier="gotoActorDetails" id="vLj-ZF-asM"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -251,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wcz-Je-1Dw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2016" y="-118"/>
+            <point key="canvasLocation" x="2015.9420289855075" y="-118.52678571428571"/>
         </scene>
         <!--Actor Details View Controller-->
         <scene sceneID="gSo-Sb-q61">
@@ -294,9 +271,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="CTz-Jj-cKl">
-                        <barButtonItem key="rightBarButtonItem" image="pencil" catalog="system" id="zyL-f6-aoE">
+                        <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="zyL-f6-aoE">
                             <connections>
-                                <segue destination="3cy-PQ-CqO" kind="show" id="1Vh-UX-fWv"/>
+                                <segue destination="1Rn-Df-g47" kind="show" identifier="gotoEditActor" id="5Ti-vQ-9px"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -339,25 +316,74 @@
             </objects>
             <point key="canvasLocation" x="-571" y="299"/>
         </scene>
+        <!--Edit Add Actor View Contoller-->
+        <scene sceneID="W7l-8F-PoW">
+            <objects>
+                <tableViewController id="1Rn-Df-g47" customClass="EditAddActorViewContoller" customModule="Actors" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NS4-Fe-EFw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="eUg-Te-9iZ" detailTextLabel="XFu-A7-jS3" rowHeight="43.5" style="IBUITableViewCellStyleSubtitle" id="Atz-Y6-l8o">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Atz-Y6-l8o" id="dMu-WV-lwI">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eUg-Te-9iZ">
+                                            <rect key="frame" x="20" y="5" width="33" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XFu-A7-jS3">
+                                            <rect key="frame" x="20" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1Rn-Df-g47" id="rjv-O9-7Jf"/>
+                            <outlet property="delegate" destination="1Rn-Df-g47" id="YY9-5l-KU7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Qlw-Sj-Q9l">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="nOU-7m-Vvd">
+                            <connections>
+                                <action selector="didTapSave:" destination="1Rn-Df-g47" id="TbD-Mo-7ot"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DeJ-mi-0oN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2275" y="698"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aBp-iR-DBM"/>
-        <segue reference="GmS-qe-zTx"/>
+        <segue reference="5Ti-vQ-9px"/>
+        <segue reference="J3f-Qk-Fzy"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="background" width="800" height="600"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
