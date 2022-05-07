@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ActorsTableViewController: UITableViewController, UISearchBarDelegate {
+class ActorsTableViewController: UITableViewController {
 
     // outlets
     @IBOutlet weak var searchBar: UISearchBar!
@@ -20,11 +20,22 @@ class ActorsTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchBar.delegate = self
-
+        searchBar.delegate         = self
+        tabBarController?.delegate = self
+        
+        let selectedItem = tabBarController?.tabBar.selectedItem
+        title = selectedItem?.title
+        
         let actorsData = Actors(xmlFilename: "actors.xml")
         actors         = actorsData.data
-        visibleActors  = actorsData.data
+        
+        if selectedItem?.title == "Favourites" {
+            let favouriteActors = actors.mapValues { $0.filter { $0.isFavourite } }
+            visibleActors = favouriteActors
+        } else {
+            visibleActors = actorsData.data
+        }
+        
         categories     = actorsData.categories
         
         let image             = UIImage(named: "background")
@@ -33,34 +44,10 @@ class ActorsTableViewController: UITableViewController, UISearchBarDelegate {
         imageView.contentMode = .scaleAspectFill
         
         tableView.backgroundView = imageView
-    }
-    
-    // MARK: - Search bar delegate
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        for index in visibleActors.values.indices {
-            visibleActors.values[index] = []
-        }
+        let items        = tabBarController?.tabBar.items
         
-        if searchText == "" {
-            visibleActors = actors
-        } else {
-            let lowerCaseSearchText = searchText.lowercased()
-            
-            for index in actors.values.indices {
-                for actor in actors.values[index] {
-                    if actor.name.lowercased().contains(lowerCaseSearchText) {
-                        if visibleActors[visibleActors.keys[index]] == nil {
-                            visibleActors[visibleActors.keys[index]] = []
-                        }
-                        visibleActors[visibleActors.keys[index]]?.append(actor)
-                    }
-                }
-            }
-        }
-        
-        tableView.reloadData()
+        updateItemImage(of: selectedItem, in: items)
     }
 
     // MARK: - Table view data source
@@ -89,7 +76,29 @@ class ActorsTableViewController: UITableViewController, UISearchBarDelegate {
         cell.imageView?.image      = UIImage(named: actor.images[0])
         cell.backgroundColor       = .clear
         
+        let favouriteButton = cell.contentView.viewWithTag(1) as! UIButton
+        favouriteButton.addTarget(nil, action: #selector(didTapFavourite), for: .touchUpInside)
+        let favouriteImage = UIImage(systemName: actor.isFavourite ? "star.fill" : "star")
+        favouriteButton.setImage(favouriteImage, for: .normal)
+        
         return cell
+    }
+    
+    
+    @objc func didTapFavourite(_ sender: UIButton) {
+        let cell = sender.superview?.superview?.superview as! UITableViewCell
+        
+        let indexPath = tableView.indexPath(for: cell)
+        let actor = visibleActors[categories[indexPath?.section ?? 0]]?[indexPath?.row ?? 0] ?? Actor()
+
+        if actor.isFavourite {
+            sender.setImage(UIImage(systemName: "star"), for: .normal)
+        } else {
+            sender.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        }
+        
+        actor.isFavourite = !actor.isFavourite
+        tableView.reloadData()
     }
     
     // MARK: - Navigation
@@ -107,4 +116,60 @@ class ActorsTableViewController: UITableViewController, UISearchBarDelegate {
         }
     }
 
+}
+
+// MARK: - Search bar delegate
+extension ActorsTableViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        for index in visibleActors.values.indices {
+            visibleActors.values[index] = []
+        }
+        
+        if searchText == "" {
+            visibleActors = actors
+        } else {
+            let lowerCaseSearchText = searchText.lowercased()
+            
+            for index in actors.values.indices {
+                for actor in actors.values[index] {
+                    if actor.name.lowercased().contains(lowerCaseSearchText) {
+                        if visibleActors[visibleActors.keys[index]] == nil {
+                            visibleActors[visibleActors.keys[index]] = []
+                        }
+                        visibleActors[visibleActors.keys[index]]?.append(actor)
+                    }
+                }
+            }
+        }
+        
+        tableView.reloadData()
+    }
+}
+
+// MARK: - Tab bar Controller Delegate
+extension ActorsTableViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        updateItemImage(of: tabBarController.tabBar.selectedItem, in: tabBarController.tabBar.items)
+    }
+    
+    func updateItemImage(of selectedItem: UITabBarItem?, in allItems: [UITabBarItem]?) {
+        guard let item = selectedItem, let items = allItems else { return }
+        
+        if item.title == "Favourites" {
+            item.image = UIImage(systemName: "star.fill")
+            
+            for item in items where item != selectedItem {
+                item.image = UIImage(systemName: "person.circle")
+            }
+        } else {
+            item.image = UIImage(systemName: "person.circle.fill")
+            
+            for item in items where item != selectedItem {
+                item.image = UIImage(systemName: "star")
+            }
+        }
+    }
 }

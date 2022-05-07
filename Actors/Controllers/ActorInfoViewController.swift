@@ -9,6 +9,10 @@ import UIKit
 
 class ActorInfoViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    @IBAction func didTapButton(_ sender: UIButton) {
+        sender.setTitle("hello", for: .normal)
+    }
+    
     // model data
     var actor   : Actor!
     var category: String!

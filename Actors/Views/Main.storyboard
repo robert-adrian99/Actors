@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q5B-4d-Lks">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bAG-I4-lo2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Actors-->
+        <!--Actors Table View Controller-->
         <scene sceneID="A0S-Cx-qbq">
             <objects>
                 <tableViewController id="c24-Ex-F1U" customClass="ActorsTableViewController" customModule="Actors" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,6 +49,20 @@
                                             <rect key="frame" x="22" y="30.5" width="20" height="19"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BhC-aE-pPO">
+                                            <rect key="frame" x="334" y="0.0" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mX-EZ-T6h">
+                                                    <rect key="frame" x="27" y="8" width="27" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" name="AccentColor"/>
+                                                    <state key="normal" image="star" catalog="system">
+                                                        <color key="titleColor" name="AccentColor"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                        </view>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -61,19 +76,59 @@
                             <outlet property="delegate" destination="c24-Ex-F1U" id="PD8-8i-6Bb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Actors" id="OQR-68-Qyw"/>
+                    <navigationItem key="navigationItem" id="OQR-68-Qyw">
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="nSl-3x-Lt0">
+                            <connections>
+                                <segue destination="3cy-PQ-CqO" kind="show" id="aBp-iR-DBM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="WPJ-nK-JJz" id="7rq-5F-Gf4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLH-vC-mSz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="192.75362318840581" y="119.86607142857142"/>
+            <point key="canvasLocation" x="1127.536231884058" y="-119.19642857142857"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Favourites-->
+        <scene sceneID="Xtd-96-Bvt">
+            <objects>
+                <navigationController id="p7d-B7-zsR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favourites" image="star" catalog="system" id="fSn-ws-ONR"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0GR-RB-wDj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="c24-Ex-F1U" kind="relationship" relationship="rootViewController" id="GmS-qe-zTx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gV8-Yc-Myx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="293" y="710"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="18t-5N-NBR">
+            <objects>
+                <viewController id="3cy-PQ-CqO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vyC-Ga-UHQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="f5P-hQ-mOd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FxV-uZ-Bba"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qxo-1f-WOA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2016" y="698"/>
+        </scene>
+        <!--All actors-->
         <scene sceneID="ObN-Ke-K06">
             <objects>
                 <navigationController id="Q5B-4d-Lks" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="All actors" image="person.circle" catalog="system" id="rik-OC-i3R"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wFd-cH-lp9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -84,7 +139,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMo-AF-eZ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-616" y="120"/>
+            <point key="canvasLocation" x="293" y="-118"/>
         </scene>
         <!--Actor Info View Controller-->
         <scene sceneID="vQj-7v-5bd">
@@ -196,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wcz-Je-1Dw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1105.7971014492755" y="119.86607142857142"/>
+            <point key="canvasLocation" x="2016" y="-118"/>
         </scene>
         <!--Actor Details View Controller-->
         <scene sceneID="gSo-Sb-q61">
@@ -238,11 +293,17 @@
                             <outlet property="delegate" destination="Lry-Rc-AxA" id="wtw-Py-7Yb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="CTz-Jj-cKl"/>
+                    <navigationItem key="navigationItem" id="CTz-Jj-cKl">
+                        <barButtonItem key="rightBarButtonItem" image="pencil" catalog="system" id="zyL-f6-aoE">
+                            <connections>
+                                <segue destination="3cy-PQ-CqO" kind="show" id="1Vh-UX-fWv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2KJ-U4-GC6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1997" y="120"/>
+            <point key="canvasLocation" x="2906" y="-118"/>
         </scene>
         <!--Actor Website View Controller-->
         <scene sceneID="S4K-no-1Vq">
@@ -257,13 +318,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Don-bF-6Of" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2910.144927536232" y="119.86607142857142"/>
+            <point key="canvasLocation" x="3820" y="-118"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="dTP-uT-V8c">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="bAG-I4-lo2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ok3-5z-mQg">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Q5B-4d-Lks" kind="relationship" relationship="viewControllers" id="xrH-s8-GLJ"/>
+                        <segue destination="p7d-B7-zsR" kind="relationship" relationship="viewControllers" id="vxw-T8-fWY"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Upo-Ov-sGa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-571" y="299"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="aBp-iR-DBM"/>
+        <segue reference="GmS-qe-zTx"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="background" width="800" height="600"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

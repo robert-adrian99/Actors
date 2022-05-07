@@ -13,6 +13,7 @@ class Actor {
     var name, cityOfBirth, description, phoneNo, email, website: String
     var images, filmography: [String]
     var age: Int
+    var isFavourite: Bool
     
     init() {
         name        = notDefinedString
@@ -24,17 +25,19 @@ class Actor {
         phoneNo     = notDefinedString
         email       = notDefinedString
         website     = notDefinedString
+        isFavourite = false
     }
     
-    init(name:       String,
-         cityOfBirth:String,
-         description:String,
-         images:     [String],
-         phoneNo:    String,
-         email:      String,
-         website:    String,
-         filmography:[String],
-         age:        Int) {
+    init(name       : String,
+         cityOfBirth: String,
+         description: String,
+         images     : [String],
+         phoneNo    : String,
+         email      : String,
+         website    : String,
+         filmography: [String],
+         age        : Int,
+         isFavourite: Bool) {
         
         self.name        = name
         self.cityOfBirth = cityOfBirth
@@ -45,5 +48,6 @@ class Actor {
         self.phoneNo     = phoneNo
         self.email       = email
         self.website     = website
+        self.isFavourite = isFavourite
     }
 }

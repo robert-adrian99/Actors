@@ -16,6 +16,7 @@ class XMLActorParser: NSObject, XMLParserDelegate {
     var aImages      = [String]()
     var aFilmography = [String]()
     var aAge: Int!
+    var aIsFavourite: Bool!
     
     var categories = [String]()
     var actorsData = [String:[Actor]]()
@@ -25,7 +26,7 @@ class XMLActorParser: NSObject, XMLParserDelegate {
     
     var parser: XMLParser!
     
-    let tags = ["name", "cityOfBirth", "description", "image", "phoneNo", "email", "website", "film", "age", "category"]
+    let tags = ["name", "cityOfBirth", "description", "image", "phoneNo", "email", "website", "film", "age", "category", "isFavourite"]
     
     init(filename: String) {
         self.name = filename
@@ -44,7 +45,7 @@ class XMLActorParser: NSObject, XMLParserDelegate {
                 actorsData[aCategory] = []
             }
             
-            actorsData[aCategory]?.append(Actor(name: aName, cityOfBirth: aCityOfBirth, description: aDescription, images: aImages, phoneNo: aPhoneNo, email: aEmail, website: aWebsite, filmography: aFilmography, age: aAge))
+            actorsData[aCategory]?.append(Actor(name: aName, cityOfBirth: aCityOfBirth, description: aDescription, images: aImages, phoneNo: aPhoneNo, email: aEmail, website: aWebsite, filmography: aFilmography, age: aAge, isFavourite: aIsFavourite))
             aFilmography = []
             aImages      = []
         }
@@ -86,6 +87,8 @@ class XMLActorParser: NSObject, XMLParserDelegate {
                 if !categories.contains(aCategory) {
                     categories.append(aCategory)
                 }
+            case 10:
+                aIsFavourite = Bool(string)
             default:
                 break
             }
