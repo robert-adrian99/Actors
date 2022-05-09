@@ -22,6 +22,11 @@
 		662ED1B32825A3C30076AFE0 /* ActorWebsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662ED1B22825A3C30076AFE0 /* ActorWebsiteViewController.swift */; };
 		662ED1B72825A4920076AFE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 662ED1B62825A4910076AFE0 /* Main.storyboard */; };
 		66A6B5182826B8C300E74712 /* EditAddActorViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A6B5172826B8C300E74712 /* EditAddActorViewContoller.swift */; };
+		66A6B54D28290D7C00E74712 /* ActorRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A6B54C28290D7B00E74712 /* ActorRepository.swift */; };
+		66A6B5542829276700E74712 /* FavouriteActorCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A6B5502829276700E74712 /* FavouriteActorCD+CoreDataClass.swift */; };
+		66A6B5552829276700E74712 /* FavouriteActorCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A6B5512829276700E74712 /* FavouriteActorCD+CoreDataProperties.swift */; };
+		66A6B5562829276700E74712 /* ActorCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A6B5522829276700E74712 /* ActorCD+CoreDataClass.swift */; };
+		66A6B5572829276700E74712 /* ActorCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A6B5532829276700E74712 /* ActorCD+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +47,11 @@
 		662ED1B22825A3C30076AFE0 /* ActorWebsiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorWebsiteViewController.swift; sourceTree = "<group>"; };
 		662ED1B62825A4910076AFE0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		66A6B5172826B8C300E74712 /* EditAddActorViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddActorViewContoller.swift; sourceTree = "<group>"; };
+		66A6B54C28290D7B00E74712 /* ActorRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorRepository.swift; sourceTree = "<group>"; };
+		66A6B5502829276700E74712 /* FavouriteActorCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavouriteActorCD+CoreDataClass.swift"; sourceTree = "<group>"; };
+		66A6B5512829276700E74712 /* FavouriteActorCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavouriteActorCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		66A6B5522829276700E74712 /* ActorCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActorCD+CoreDataClass.swift"; sourceTree = "<group>"; };
+		66A6B5532829276700E74712 /* ActorCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActorCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +86,10 @@
 			children = (
 				662ED1872825A1800076AFE0 /* Info.plist */,
 				662ED1822825A1800076AFE0 /* Assets.xcassets */,
+				662ED18E2825A1B50076AFE0 /* Lifecycle */,
 				662ED1A02825A2840076AFE0 /* Helpers */,
 				662ED1912825A1D40076AFE0 /* Data */,
 				662ED1972825A2030076AFE0 /* Models */,
-				662ED18E2825A1B50076AFE0 /* Lifecycle */,
 				662ED1902825A1C60076AFE0 /* Views */,
 				662ED1922825A1E00076AFE0 /* Controllers */,
 			);
@@ -128,6 +138,10 @@
 		662ED1972825A2030076AFE0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				66A6B5502829276700E74712 /* FavouriteActorCD+CoreDataClass.swift */,
+				66A6B5512829276700E74712 /* FavouriteActorCD+CoreDataProperties.swift */,
+				66A6B5522829276700E74712 /* ActorCD+CoreDataClass.swift */,
+				66A6B5532829276700E74712 /* ActorCD+CoreDataProperties.swift */,
 				662ED19A2825A25E0076AFE0 /* Actor.swift */,
 				662ED19D2825A2740076AFE0 /* Actors.swift */,
 			);
@@ -138,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				662ED1A12825A2A70076AFE0 /* XMLActorParser.swift */,
+				66A6B54C28290D7B00E74712 /* ActorRepository.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -219,10 +234,15 @@
 				662ED19E2825A2740076AFE0 /* Actors.swift in Sources */,
 				66A6B5182826B8C300E74712 /* EditAddActorViewContoller.swift in Sources */,
 				662ED1AA2825A3250076AFE0 /* ActorsTableViewController.swift in Sources */,
+				66A6B54D28290D7C00E74712 /* ActorRepository.swift in Sources */,
 				662ED1AD2825A34C0076AFE0 /* ActorInfoViewController.swift in Sources */,
+				66A6B5552829276700E74712 /* FavouriteActorCD+CoreDataProperties.swift in Sources */,
 				662ED1812825A17A0076AFE0 /* Actors.xcdatamodeld in Sources */,
 				662ED19B2825A25E0076AFE0 /* Actor.swift in Sources */,
 				662ED1B02825A38C0076AFE0 /* ActorDetailsViewController.swift in Sources */,
+				66A6B5572829276700E74712 /* ActorCD+CoreDataProperties.swift in Sources */,
+				66A6B5542829276700E74712 /* FavouriteActorCD+CoreDataClass.swift in Sources */,
+				66A6B5562829276700E74712 /* ActorCD+CoreDataClass.swift in Sources */,
 				662ED1A22825A2A70076AFE0 /* XMLActorParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

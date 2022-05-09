@@ -20,10 +20,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="916"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="PPK-Dv-bj5">
-                                <rect key="frame" x="82" y="323" width="250" height="250"/>
+                                <rect key="frame" x="7" y="248" width="400" height="400"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="YJ6-Br-quT"/>
-                                    <constraint firstAttribute="height" constant="250" id="hnY-0H-VcE"/>
+                                    <constraint firstAttribute="width" constant="400" id="YJ6-Br-quT"/>
+                                    <constraint firstAttribute="height" constant="400" id="hnY-0H-VcE"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -45,7 +45,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon" width="553" height="479"/>
+        <image name="Icon" width="666" height="375"/>
         <image name="background" width="800" height="600"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

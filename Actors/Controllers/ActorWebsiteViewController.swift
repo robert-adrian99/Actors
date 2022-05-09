@@ -8,11 +8,13 @@
 import UIKit
 import WebKit
 
-class ActorWebsiteViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
+class ActorWebsiteViewController: UIViewController {
     
+    // model data
     var actorName   : String!
     var actorWebsite: String!
     
+    // views
     var webView          : WKWebView!
     var activityIndicator: UIActivityIndicatorView!
     
@@ -42,23 +44,32 @@ class ActorWebsiteViewController: UIViewController, WKNavigationDelegate, WKUIDe
         view = webView
     }
     
-    func showActivityIndicator(show: Bool) {
+    private func showActivityIndicator(show: Bool) {
+        
         if show {
             activityIndicator.startAnimating()
         } else {
             activityIndicator.stopAnimating()
         }
     }
+}
 
+// MARK:- Web View Delegate
+
+extension ActorWebsiteViewController: WKNavigationDelegate, WKUIDelegate {
+    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        
         showActivityIndicator(show: false)
     }
 
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        
         showActivityIndicator(show: true)
     }
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        
         showActivityIndicator(show: false)
     }
 }

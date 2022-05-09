@@ -7,15 +7,10 @@
 
 import UIKit
 
-class ActorInfoViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
-    @IBAction func didTapButton(_ sender: UIButton) {
-        sender.setTitle("hello", for: .normal)
-    }
+class ActorInfoViewController: UIViewController {
     
     // model data
-    var actor   : Actor!
-    var category: String!
+    var actor   : ActorCD!
     
     // outlets
     @IBOutlet weak var nameLabel     : UILabel!
@@ -23,38 +18,48 @@ class ActorInfoViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBOutlet weak var categoryLabel : UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // variables for arranging collection view cells
+    let cellGap            : CGFloat = 10
+    let leftGapToScreen    : CGFloat = 10
+    let rightGapToScreen   : CGFloat = 10
+    let minLineSpacing     : CGFloat = 10
+    let minInterItemSpacing: CGFloat = 10
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let isLastCharS = actor.name.last == "s"
-        title = actor.name + (isLastCharS ? "' gallery" : "'s gallery")
+        let isLastCharS = actor.name?.last == "s"
+        title = actor.name! + (isLastCharS ? "' gallery" : "'s gallery")
         
         nameLabel.text     = actor.name
-        ageLabel.text      = "\(actor.age) years old"
-        categoryLabel.text = "Category: " + category
+        ageLabel.text      = "\(actor.age) years"
+        categoryLabel.text = "Category: " + actor.category!
         
         collectionView.delegate   = self
         collectionView.dataSource = self
     }
     
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "gotoActorDetails" {
             // Get the new view controller using segue.destination.
             let actorDetailVC = segue.destination as! ActorDetailsViewController
             
             // Pass the selected object to the new view controller.
-            actorDetailVC.actor = self.actor
+            actorDetailVC.actor = actor
         }
     }
-    
-    // MARK: - Collection View Data Source
+}
+
+// MARK: - Collection View Data Source
+extension ActorInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        actor.images.count
+        
+        return actor.images?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -65,7 +70,7 @@ class ActorInfoViewController: UIViewController, UICollectionViewDelegate, UICol
             cellView.removeFromSuperview()
         }
         
-        let image = UIImage(named: actor.images[indexPath.row])
+        let image = UIImage(data: actor.images![indexPath.row])
         let imageView = UIImageView(image: image)
         imageView.frame = cell.bounds
         imageView.contentMode = .scaleAspectFit
@@ -73,17 +78,11 @@ class ActorInfoViewController: UIViewController, UICollectionViewDelegate, UICol
         
         return cell
     }
-    
-    // arranging collection view cells
-    let cellGap            : CGFloat = 10
-    let leftGapToScreen    : CGFloat = 10
-    let rightGapToScreen   : CGFloat = 10
-    let minLineSpacing     : CGFloat = 10
-    let minInterItemSpacing: CGFloat = 10
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let availableWidth = UIScreen.main.bounds.width - (2 * cellGap) -
-        leftGapToScreen - rightGapToScreen
+        
+        let availableWidth = UIScreen.main.bounds.width - (2 * cellGap) - leftGapToScreen - rightGapToScreen
+        
         let cellWidth = availableWidth / 3
         let cellHeight = cellWidth
         
@@ -91,14 +90,17 @@ class ActorInfoViewController: UIViewController, UICollectionViewDelegate, UICol
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
         return UIEdgeInsets(top: 0, left: leftGapToScreen, bottom: 0, right: rightGapToScreen)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
         return minLineSpacing
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        
         return minInterItemSpacing
     }
 }

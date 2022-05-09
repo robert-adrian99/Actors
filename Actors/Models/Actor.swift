@@ -7,37 +7,38 @@
 
 import Foundation
 
-let notDefinedString: String = "N\\A"
-
 class Actor {
-    var name, cityOfBirth, description, phoneNo, email, website: String
-    var images, filmography: [String]
+    var name, cityOfBirth, description, phoneNo, email, website, category: String
+    var images     : [Data]
+    var filmography: [String]
     var age: Int
     var isFavourite: Bool
     
     init() {
-        name        = notDefinedString
-        cityOfBirth = notDefinedString
-        description = notDefinedString
-        filmography = [notDefinedString]
+        name        = "Name"
+        cityOfBirth = "City of birth"
+        description = "Description"
+        filmography = ["Movie"]
         age         = 0
-        images      = [notDefinedString]
-        phoneNo     = notDefinedString
-        email       = notDefinedString
-        website     = notDefinedString
+        images      = []
+        phoneNo     = "Phone number"
+        email       = "Email"
+        website     = "Website"
+        category    = "Category"
         isFavourite = false
     }
     
     init(name       : String,
          cityOfBirth: String,
          description: String,
-         images     : [String],
+         images     : [Data],
          phoneNo    : String,
          email      : String,
          website    : String,
          filmography: [String],
          age        : Int,
-         isFavourite: Bool) {
+         isFavourite: Bool,
+         category   : String) {
         
         self.name        = name
         self.cityOfBirth = cityOfBirth
@@ -48,6 +49,7 @@ class Actor {
         self.phoneNo     = phoneNo
         self.email       = email
         self.website     = website
+        self.category    = category
         self.isFavourite = isFavourite
     }
 }

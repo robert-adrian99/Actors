@@ -8,12 +8,10 @@
 import Foundation
 
 class Actors {
-    var data: [String:[Actor]]
-    var categories: [String]
+    var data: [Actor]
     
     init() {
-        data = [:]
-        categories = []
+        data = []
     }
     
     init(xmlFilename: String) {
@@ -23,6 +21,5 @@ class Actors {
         
         // self data
         self.data = xmlActorParser.actorsData
-        self.categories = xmlActorParser.categories
     }
 }

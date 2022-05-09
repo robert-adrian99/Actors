@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class XMLActorParser: NSObject, XMLParserDelegate {
     
@@ -13,13 +14,12 @@ class XMLActorParser: NSObject, XMLParserDelegate {
     
     // vars and objects needed for parsing
     var aName, aCityOfBirth, aDescription, aPhoneNo, aEmail, aWebsite,  aCategory: String!
-    var aImages      = [String]()
+    var aImages      = [Data]()
     var aFilmography = [String]()
     var aAge: Int!
     var aIsFavourite: Bool!
     
-    var categories = [String]()
-    var actorsData = [String:[Actor]]()
+    var actorsData = [Actor]()
     
     var elemId = -1
     var passData = false
@@ -41,11 +41,8 @@ class XMLActorParser: NSObject, XMLParserDelegate {
         }
         
         if elementName == "actor" {
-            if actorsData[aCategory] == nil {
-                actorsData[aCategory] = []
-            }
             
-            actorsData[aCategory]?.append(Actor(name: aName, cityOfBirth: aCityOfBirth, description: aDescription, images: aImages, phoneNo: aPhoneNo, email: aEmail, website: aWebsite, filmography: aFilmography, age: aAge, isFavourite: aIsFavourite))
+            actorsData.append(Actor(name: aName, cityOfBirth: aCityOfBirth, description: aDescription, images: aImages, phoneNo: aPhoneNo, email: aEmail, website: aWebsite, filmography: aFilmography, age: aAge, isFavourite: aIsFavourite, category: aCategory))
             aFilmography = []
             aImages      = []
         }
@@ -71,7 +68,8 @@ class XMLActorParser: NSObject, XMLParserDelegate {
             case 2:
                 aDescription = string
             case 3:
-                aImages.append(string)
+                let imageData = UIImage(named: string)?.pngData()
+                aImages.append(imageData!)
             case 4:
                 aPhoneNo = string
             case 5:
@@ -84,9 +82,6 @@ class XMLActorParser: NSObject, XMLParserDelegate {
                 aAge = Int(string)
             case 9:
                 aCategory = string
-                if !categories.contains(aCategory) {
-                    categories.append(aCategory)
-                }
             case 10:
                 aIsFavourite = Bool(string)
             default:
