@@ -11,10 +11,10 @@ import CoreData
 class EditAddActorViewContoller: UITableViewController {
 
     // model data
-    var actor: ActorCD!
-    var actorImageView = UIImageView()
-    var textPlaceholder = ""
-    var indexTag = 1
+    var actorCD         : ActorCD!
+    var favouriteActorCD: FavouriteActorCD!
+    
+    private var actor: Actor!
     
     // core data
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -22,35 +22,52 @@ class EditAddActorViewContoller: UITableViewController {
     // variables for arranging cells in table view
     // rowsInSection0 represents the number of details displayed about the actor
     // rowsInSection1 represents the default number of films
-    let rowsInSection0 = 7
+    let rowsInSection0 = 8
     let rowsInSection1 = 4
     
+    // other variables
+    var actorImageView = UIImageView()
+    var textPlaceholder = ""
+    var indexTag = 1
     var isEditMode = false
     
-    // actions
+    // outlets and actions
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     @IBAction func didTapSave(_ sender: UIBarButtonItem) {
-        if actor != nil {
-            updateActor()
+        if isEditMode {
+            if actorCD != nil{
+                updateActor()
+            } else {
+                updateActor()
+            }
+            navigationController?.popToRootViewController(animated: true)
         } else {
             insertActor()
+            dismiss(animated: true, completion: nil)
         }
-        
-        navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        isEditMode = actor != nil
+        isEditMode = actorCD != nil || favouriteActorCD != nil
+        if isEditMode && actorCD != nil {
+            actor = Actor(actorCD: actorCD)
+        } else if isEditMode {
+            actor = Actor(favActorCD: favouriteActorCD)
+        }
         
         if isEditMode {
-            let isLastCharS = actor.name!.last == "s"
-            title = "Edit " + actor.name! + (isLastCharS ? "' details" : "'s details")
-            actor.filmography?.sort()
+            let isLastCharS = actor.name.last == "s"
+            title = "Edit " + actor.name + (isLastCharS ? "' details" : "'s details")
+            actor.filmography.sort()
         } else {
             title = "New Actor"
         }
+        
+        saveButton.isEnabled = false
         
         let image                       = UIImage(named: "background")
         let backgroundImageView         = UIImageView(image: image)
@@ -64,48 +81,102 @@ class EditAddActorViewContoller: UITableViewController {
     func insertActor() {
         let entity = NSEntityDescription.entity(forEntityName: "ActorCD", in: context)
         let actorCD = ActorCD(entity: entity!, insertInto: context)
+        var favouriteActorCD: FavouriteActorCD! = nil
         
-        let textViews = view.subviews.filter { $0 is UITableViewCell }.flatMap { $0.subviews }.flatMap { $0.subviews }.filter { $0 is UITextView}
+        let favouriteSwitch = view.subviews.filter { $0 is UITableViewCell }.flatMap { $0.subviews }.flatMap { $0.subviews }.filter { $0 is UISwitch }.first as! UISwitch
+        
+        let isFavourite = favouriteSwitch.isOn
+        
+        if isFavourite {
+            let favEntity = NSEntityDescription.entity(forEntityName: "FavouriteActorCD", in: context)
+            favouriteActorCD = FavouriteActorCD(entity: favEntity!, insertInto: context)
+        }
+        
+        let textViews = view.subviews.filter { $0 is UITableViewCell }.flatMap { $0.subviews }.flatMap { $0.subviews }.filter { $0 is UITextView }
         
         actorCD.filmography = ["", "", "", ""]
-        actorCD.isFavourite = false
+        actorCD.isFavourite = isFavourite
+        
+        if isFavourite {
+            favouriteActorCD.filmography = ["", "", "", ""]
+            favouriteActorCD.isFavourite = isFavourite
+        }
         
         for subview in textViews {
             switch subview.tag {
             case 1:
                 actorCD.name = (subview as! UITextView).text
+                if isFavourite {
+                    favouriteActorCD.name = (subview as! UITextView).text
+                }
             case 2:
                 actorCD.age = Int16((subview as! UITextView).text) ?? 0
+                if isFavourite {
+                    favouriteActorCD.age = Int16((subview as! UITextView).text) ?? 0
+                }
             case 3:
                 actorCD.category = (subview as! UITextView).text
+                if isFavourite {
+                    favouriteActorCD.category = (subview as! UITextView).text
+                }
             case 4:
                 actorCD.cityOfBirth = (subview as! UITextView).text
+                if isFavourite {
+                    favouriteActorCD.cityOfBirth = (subview as! UITextView).text
+                }
             case 5:
                 actorCD.phoneNo = (subview as! UITextView).text
+                if isFavourite {
+                    favouriteActorCD.phoneNo = (subview as! UITextView).text
+                }
             case 6:
                 actorCD.email = (subview as! UITextView).text
+                if isFavourite {
+                    favouriteActorCD.email = (subview as! UITextView).text
+                }
             case 7:
                 actorCD.actorDescription = (subview as! UITextView).text
+                if isFavourite {
+                    favouriteActorCD.actorDescription = (subview as! UITextView).text
+                }
             case 8:
                 actorCD.website = (subview as! UITextView).text
+                if isFavourite {
+                    favouriteActorCD.website = (subview as! UITextView).text
+                }
             case 9:
                 actorCD.filmography![0] = (subview as! UITextView).text
+                if isFavourite {
+                    favouriteActorCD.filmography![0] = (subview as! UITextView).text
+                }
             case 10:
                 actorCD.filmography![1] = (subview as! UITextView).text
+                if isFavourite {
+                    favouriteActorCD.filmography![1] = (subview as! UITextView).text
+                }
             case 11:
                 actorCD.filmography![2] = (subview as! UITextView).text
+                if isFavourite {
+                    favouriteActorCD.filmography![2] = (subview as! UITextView).text
+                }
             case 12:
                 actorCD.filmography![3] = (subview as! UITextView).text
+                if isFavourite {
+                    favouriteActorCD.filmography![3] = (subview as! UITextView).text
+                }
             default:
                 break
             }
         }
         
-        let imageView = view.subviews.filter { $0 is UITableViewCell }.flatMap { $0.subviews }.flatMap { $0.subviews }.filter { $0 is UIImageView}.first as! UIImageView
+        let imageView = view.subviews.filter { $0 is UITableViewCell }.flatMap { $0.subviews }.flatMap { $0.subviews }.filter { $0 is UIImageView }.first as! UIImageView
         
         let imageData = imageView.image?.pngData()
         if imageData != nil {
             actorCD.images = [imageData!]
+            if isFavourite {
+                favouriteActorCD.images = [imageData!]
+            }
         }
         
         // save changes
@@ -118,59 +189,118 @@ class EditAddActorViewContoller: UITableViewController {
     
     func updateActor() {
         
-        let textViews = view.subviews.filter { $0 is UITableViewCell }.flatMap { $0.subviews }.flatMap { $0.subviews }.filter { $0 is UITextView}
+        let textViews = view.subviews.filter { $0 is UITableViewCell }.flatMap { $0.subviews }.flatMap { $0.subviews }.filter { $0 is UITextView }
         var isChanged = false
+        
         for subview in textViews {
             if !(subview as! UITextView).text.isEmpty {
                 switch subview.tag {
                 case 1:
-                    actor.name = (subview as! UITextView).text
-                    isChanged = true
-                case 2:
-                    if (subview as! UITextView).text != "\(actor.age) years" {
-                        actor.age = Int16((subview as! UITextView).text) ?? 0
+                    let insertedName = (subview as! UITextView).text
+                    if actorCD != nil && actorCD.name != insertedName {
+                        actorCD.name = insertedName
                         isChanged = true
-                    } else {
-                        isChanged = false
+                    } else if favouriteActorCD != nil && favouriteActorCD.name != insertedName {
+                        favouriteActorCD.name = insertedName
+                        isChanged = true
+                    }
+                case 2:
+                    let insertedAge = (subview as! UITextView).text
+                    if actorCD != nil && "\(actorCD.age) years" != insertedAge {
+                        actorCD.age = Int16(insertedAge!) ?? 0
+                        isChanged = true
+                    } else if favouriteActorCD != nil && "\(favouriteActorCD.age) years" != insertedAge {
+                        favouriteActorCD.age = Int16(insertedAge!) ?? 0
+                        isChanged = true
                     }
                 case 3:
-                    actor.category = (subview as! UITextView).text
-                    isChanged = true
+                    let insertedCategory = (subview as! UITextView).text
+                    if actorCD != nil && actorCD.category != insertedCategory {
+                        actorCD.category = insertedCategory
+                        isChanged = true
+                    } else if favouriteActorCD != nil && favouriteActorCD.category != insertedCategory{
+                        favouriteActorCD.category = insertedCategory
+                        isChanged = true
+                    }
                 case 4:
-                    actor.cityOfBirth = (subview as! UITextView).text
-                    isChanged = true
+                    let insertedCityOfBirth = (subview as! UITextView).text
+                    if actorCD != nil && actorCD.cityOfBirth != insertedCityOfBirth {
+                        actorCD.cityOfBirth = insertedCityOfBirth
+                        isChanged = true
+                    } else if favouriteActorCD != nil && favouriteActorCD.cityOfBirth != insertedCityOfBirth {
+                        favouriteActorCD.cityOfBirth = insertedCityOfBirth
+                        isChanged = true
+                    }
                 case 5:
-                    actor.phoneNo = (subview as! UITextView).text
-                    isChanged = true
+                    let insertedPhoneNo = (subview as! UITextView).text
+                    if actorCD != nil && actorCD.phoneNo != insertedPhoneNo {
+                        actorCD.phoneNo = insertedPhoneNo
+                        isChanged = true
+                    } else if favouriteActorCD != nil && favouriteActorCD.phoneNo != insertedPhoneNo {
+                        favouriteActorCD.phoneNo = insertedPhoneNo
+                        isChanged = true
+                    }
                 case 6:
-                    actor.email = (subview as! UITextView).text
-                    isChanged = true
+                    let insertedEmail = (subview as! UITextView).text
+                    if actorCD != nil && actorCD.email != insertedEmail {
+                        actorCD.email = insertedEmail
+                        isChanged = true
+                    } else if favouriteActorCD != nil && favouriteActorCD.email != insertedEmail {
+                        favouriteActorCD.email = insertedEmail
+                        isChanged = true
+                    }
                 case 7:
-                    actor.actorDescription = (subview as! UITextView).text
-                    isChanged = true
+                    let insertedDescription = (subview as! UITextView).text
+                    if actorCD != nil && actorCD.actorDescription != insertedDescription {
+                        actorCD.actorDescription = insertedDescription
+                        isChanged = true
+                    } else if favouriteActorCD != nil && favouriteActorCD.actorDescription != insertedDescription {
+                        favouriteActorCD.actorDescription = insertedDescription
+                        isChanged = true
+                    }
                 case 8:
-                    actor.website = (subview as! UITextView).text
-                    isChanged = true
-                case 9..<actor.filmography!.count + 9:
-                    actor.filmography![subview.tag - 9] = (subview as! UITextView).text
-                    isChanged = true
+                    let insertedWebsite = (subview as! UITextView).text
+                    if actorCD != nil && actorCD.website != insertedWebsite {
+                        actorCD.website = insertedWebsite
+                        isChanged = true
+                    } else if favouriteActorCD != nil && favouriteActorCD.website != insertedWebsite{
+                        favouriteActorCD.website = insertedWebsite
+                        isChanged = true
+                    }
+                case 9..<actor.filmography.count + 9:
+                    let insertedFilm = (subview as! UITextView).text
+                    if actorCD != nil && actorCD.filmography![subview.tag - 9] != insertedFilm {
+                        actorCD.filmography![subview.tag - 9] = insertedFilm!
+                        isChanged = true
+                    } else if favouriteActorCD != nil && favouriteActorCD.filmography![subview.tag - 9] != insertedFilm {
+                        favouriteActorCD.filmography![subview.tag - 9] = insertedFilm!
+                        isChanged = true
+                    }
                 default:
                     break
                 }
             }
         }
         
-        let imageView = view.subviews.filter { $0 is UITableViewCell }.flatMap { $0.subviews }.flatMap { $0.subviews }.filter { $0 is UIImageView}.first as! UIImageView
+        let imageView = view.subviews.filter { $0 is UITableViewCell }.flatMap { $0.subviews }.flatMap { $0.subviews }.filter { $0 is UIImageView }.first as! UIImageView
         
         if imageView.alpha == 1 {
             isChanged = true
             let imageData = imageView.image?.pngData()
             if imageData != nil {
                 isChanged = true
-                if actor.images != nil && actor.images!.count > 0 {
-                    actor.images![0] = imageData!
+                if actorCD != nil {
+                    if actorCD.images!.count > 0 {
+                        actorCD.images![0] = imageData!
+                    } else {
+                        actorCD.images = [imageData!]
+                    }
                 } else {
-                    actor.images = [imageData!]
+                    if favouriteActorCD.images!.count > 0 {
+                        favouriteActorCD.images![0] = imageData!
+                    } else {
+                        favouriteActorCD.images = [imageData!]
+                    }
                 }
             }
         }
@@ -201,7 +331,7 @@ class EditAddActorViewContoller: UITableViewController {
         return section == 0
             ? rowsInSection0
             : (actor != nil
-                ? actor.filmography?.count ?? 0
+                ? actor.filmography.count
                 : rowsInSection1)
     }
     
@@ -212,11 +342,13 @@ class EditAddActorViewContoller: UITableViewController {
             switch indexPath.row {
             case 0:
                 return 100
-            case 5:
-                return 150
-            case 1..<5:
-                return 50
+            case 1:
+                return isEditMode ? 0 : 50
             case 6:
+                return 150
+            case 2..<6:
+                return 50
+            case 7:
                 return 55
             default:
                 return 0
@@ -240,7 +372,7 @@ class EditAddActorViewContoller: UITableViewController {
                 
                 let nameTextView = createTextView(
                     withTag: indexTag,
-                    text: isEditMode ? actor.name! : "Name",
+                    text: isEditMode ? actor.name : "Name",
                     font: getFont(20),
                     bounds: cell.bounds,
                     offsetX: 100,
@@ -260,13 +392,28 @@ class EditAddActorViewContoller: UITableViewController {
                     offsetHeight: 70)
                 indexTag += 1
                 
+                ageTextView.keyboardType = .numberPad
+                
                 cell.contentView.addSubview(actorImageView)
                 cell.contentView.addSubview(nameTextView)
                 cell.contentView.addSubview(ageTextView)
             case 1:
+                let favouriteSwitch = UISwitch()
+                favouriteSwitch.frame = CGRect(
+                    x: cell.bounds.maxX - 80,
+                    y: cell.bounds.minY + 10,
+                    width: 50,
+                    height: 50)
+                favouriteSwitch.isOn = false
+                favouriteSwitch.onTintColor = .systemBlue
+                
+                cell.textLabel?.text = "Is favourite"
+                cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
+                cell.contentView.addSubview(favouriteSwitch)
+            case 2:
                 let categoryTextView = createTextView(
                     withTag: indexTag,
-                    text: isEditMode ? actor.category! : "Category",
+                    text: isEditMode ? actor.category : "Category",
                     font: getFont(17),
                     bounds: cell.bounds,
                     offsetX: 20,
@@ -276,10 +423,10 @@ class EditAddActorViewContoller: UITableViewController {
                 indexTag += 1
                 
                 cell.contentView.addSubview(categoryTextView)
-            case 2:
+            case 3:
                 let cityTextView = createTextView(
                     withTag: indexTag,
-                    text: isEditMode ? actor.cityOfBirth! : "City of birth",
+                    text: isEditMode ? actor.cityOfBirth : "City of birth",
                     font: getFont(17),
                     bounds: cell.bounds,
                     offsetX: 20,
@@ -289,10 +436,10 @@ class EditAddActorViewContoller: UITableViewController {
                 indexTag += 1
                 
                 cell.contentView.addSubview(cityTextView)
-            case 3:
+            case 4:
                 let phoneTextView = createTextView(
                     withTag: indexTag,
-                    text: isEditMode ? actor.phoneNo! : "Phone number",
+                    text: isEditMode ? actor.phoneNo : "Phone number",
                     font: getFont(17),
                     bounds: cell.bounds,
                     offsetX: 20,
@@ -302,10 +449,10 @@ class EditAddActorViewContoller: UITableViewController {
                 indexTag += 1
                 
                 cell.contentView.addSubview(phoneTextView)
-            case 4:
+            case 5:
                 let emailTextView = createTextView(
                     withTag: indexTag,
-                    text: isEditMode ? actor.email! : "Email",
+                    text: isEditMode ? actor.email : "Email",
                     font: getFont(17),
                     bounds: cell.bounds,
                     offsetX: 20,
@@ -319,10 +466,10 @@ class EditAddActorViewContoller: UITableViewController {
                 emailTextView.keyboardType = .emailAddress
                 
                 cell.contentView.addSubview(emailTextView)
-            case 5:
+            case 6:
                 let descriptionTextView = createTextView(
                     withTag: indexTag,
-                    text: isEditMode ? actor.actorDescription! : "Description",
+                    text: isEditMode ? actor.description : "Description",
                     font: getFont(17),
                     bounds: cell.bounds,
                     offsetX: 20,
@@ -332,10 +479,10 @@ class EditAddActorViewContoller: UITableViewController {
                 indexTag += 1
                 
                 cell.contentView.addSubview(descriptionTextView)
-            case 6:
+            case 7:
                 let websiteTextView = createTextView(
                     withTag: indexTag,
-                    text: isEditMode ? actor.website! : "Website",
+                    text: isEditMode ? actor.website : "Website",
                     font: getFont(17),
                     bounds: cell.bounds,
                     offsetX: 20,
@@ -346,6 +493,7 @@ class EditAddActorViewContoller: UITableViewController {
                 
                 websiteTextView.textContentType = .URL
                 websiteTextView.autocapitalizationType = .none
+                websiteTextView.autocorrectionType = .no
                 websiteTextView.keyboardType = .URL
                 
                 cell.contentView.addSubview(websiteTextView)
@@ -356,7 +504,7 @@ class EditAddActorViewContoller: UITableViewController {
             if cell.contentView.subviews.filter({ $0 is UITextView }).count <= 0 {
                 let filmTextView = createTextView(
                     withTag: indexTag,
-                    text: isEditMode ? actor.filmography![indexPath.row] : "Film",
+                    text: isEditMode ? actor.filmography[indexPath.row] : "Film",
                     font: getFont(15),
                     bounds: cell.bounds,
                     offsetX: 20,
@@ -369,7 +517,9 @@ class EditAddActorViewContoller: UITableViewController {
             }
         }
         
-        cell.textLabel?.text       = ""
+        if indexPath.row != 1 {
+            cell.textLabel?.text       = ""
+        }
         cell.detailTextLabel?.text = ""
         cell.selectionStyle        = .none
         cell.backgroundColor       = .clear
@@ -409,7 +559,7 @@ class EditAddActorViewContoller: UITableViewController {
         imageView.addGestureRecognizer(tap)
         
         if isEditMode {
-            imageView.image = actor.images != nil && actor.images!.count > 0 ? UIImage(data: actor.images![0]) : UIImage(systemName: "photo")
+            imageView.image = actor.images.count > 0 ? UIImage(data: actor.images[0]) : UIImage(systemName: "photo")
         } else {
             imageView.image = UIImage(systemName: "photo")
         }
@@ -469,6 +619,22 @@ extension EditAddActorViewContoller: UIImagePickerControllerDelegate, UINavigati
         
         actorImageView.image = image
         actorImageView.alpha = 1
+        
+        if isEditMode {
+            saveButton.isEnabled = true
+        } else {
+            let subviews = view.subviews.filter { $0 is UITableViewCell }.flatMap { $0.subviews }.flatMap { $0.subviews }.filter { $0 is UITextView || $0 is UIImageView }
+            
+            var isEnabled = true
+            
+            for subview in subviews {
+                if (subview is UITextView && ((subview as! UITextView).textColor == .lightGray || (subview as! UITextView).text.isEmpty)) || (subview is UIImageView && (subview as! UIImageView).alpha == 0.5) {
+                    isEnabled = false
+                }
+            }
+            
+            saveButton.isEnabled = isEnabled
+        }
     }
 }
 
@@ -477,10 +643,10 @@ extension EditAddActorViewContoller: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
-        if textView.textColor == UIColor.lightGray {
+        if textView.textColor == .lightGray {
             textPlaceholder = textView.text
             textView.text = ""
-            textView.textColor = UIColor.black
+            textView.textColor = .black
         }
     }
     
@@ -488,7 +654,42 @@ extension EditAddActorViewContoller: UITextViewDelegate {
         
         if textView.text.isEmpty {
             textView.text = textPlaceholder
-            textView.textColor = UIColor.lightGray
+            textView.textColor = .lightGray
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        
+        if !textView.text.isEmpty {
+            if isEditMode {
+                saveButton.isEnabled = true
+            } else {
+                let subviews = view.subviews.filter { $0 is UITableViewCell }.flatMap { $0.subviews }.flatMap { $0.subviews }.filter { $0 is UITextView || $0 is UIImageView }
+                
+                var isEnabled = true
+                
+                for subview in subviews {
+                    if (subview is UITextView && ((subview as! UITextView).textColor == .lightGray || (subview as! UITextView).text.isEmpty)) || (subview is UIImageView && (subview as! UIImageView).alpha == 0.5) {
+                        isEnabled = false
+                    }
+                }
+                
+                saveButton.isEnabled = isEnabled
+            }
+        } else if isEditMode {
+            let subviews = view.subviews.filter { $0 is UITableViewCell }.flatMap { $0.subviews }.flatMap { $0.subviews }.filter { $0 is UITextView || $0 is UIImageView }
+            
+            var isEnabled = false
+            
+            for subview in subviews {
+                if subview is UITextView && ((subview as! UITextView).textColor != .lightGray && !(subview as! UITextView).text.isEmpty) || subview is UIImageView && (subview as! UIImageView).alpha != 0.5 {
+                    isEnabled = true
+                }
+            }
+            
+            saveButton.isEnabled = isEnabled
+        } else {
+            saveButton.isEnabled = false
         }
     }
 }

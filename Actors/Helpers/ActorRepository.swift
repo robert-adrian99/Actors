@@ -24,6 +24,16 @@ class ActorRepository {
         }
     }
     
+    init(frc: NSFetchedResultsController<NSFetchRequestResult>) {
+
+        for section in frc.sections! {
+            for object in section.objects! {
+                let actorCD = object as! ActorCD
+                actors.append(Actor(name: actorCD.name!, cityOfBirth: actorCD.cityOfBirth!, description: actorCD.actorDescription!, images: actorCD.images!, phoneNo: actorCD.phoneNo!, email: actorCD.email!, website: actorCD.website!, filmography: actorCD.filmography!, age: Int(actorCD.age), isFavourite: actorCD.isFavourite, category: actorCD.category!))
+            }
+        }
+    }
+    
     func addActors(to context: NSManagedObjectContext) {
         for actor in actors {
             let entity = NSEntityDescription.entity(forEntityName: "ActorCD", in: context)
@@ -40,6 +50,31 @@ class ActorRepository {
             actorCD.filmography      = actor.filmography
             actorCD.images           = actor.images
             actorCD.isFavourite      = actor.isFavourite
+        }
+        
+        do {
+            try context.save()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func addFavouriteActors(to context: NSManagedObjectContext) {
+        for actor in actors where actor.isFavourite {
+            let entity = NSEntityDescription.entity(forEntityName: "FavouriteActorCD", in: context)
+            let favActorCD = FavouriteActorCD(entity: entity!, insertInto: context)
+            
+            favActorCD.name             = actor.name
+            favActorCD.category         = actor.category
+            favActorCD.age              = Int16(actor.age)
+            favActorCD.cityOfBirth      = actor.cityOfBirth
+            favActorCD.phoneNo          = actor.phoneNo
+            favActorCD.email            = actor.email
+            favActorCD.actorDescription = actor.description
+            favActorCD.website          = actor.website
+            favActorCD.filmography      = actor.filmography
+            favActorCD.images           = actor.images
+            favActorCD.isFavourite      = actor.isFavourite
         }
         
         do {

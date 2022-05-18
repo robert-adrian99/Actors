@@ -52,4 +52,32 @@ class Actor {
         self.category    = category
         self.isFavourite = isFavourite
     }
+    
+    init(actorCD: ActorCD) {
+        self.name        = actorCD.name!
+        self.cityOfBirth = actorCD.cityOfBirth!
+        self.description = actorCD.actorDescription!
+        self.filmography = actorCD.filmography!
+        self.age         = Int(actorCD.age)
+        self.images      = actorCD.images!
+        self.phoneNo     = actorCD.phoneNo!
+        self.email       = actorCD.email!
+        self.website     = actorCD.website!
+        self.category    = actorCD.category!
+        self.isFavourite = actorCD.isFavourite
+    }
+    
+    init(favActorCD: FavouriteActorCD) {
+        self.name        = favActorCD.name!
+        self.cityOfBirth = favActorCD.cityOfBirth!
+        self.description = favActorCD.actorDescription!
+        self.filmography = favActorCD.filmography!
+        self.age         = Int(favActorCD.age)
+        self.images      = favActorCD.images!
+        self.phoneNo     = favActorCD.phoneNo!
+        self.email       = favActorCD.email!
+        self.website     = favActorCD.website!
+        self.category    = favActorCD.category!
+        self.isFavourite = favActorCD.isFavourite
+    }
 }

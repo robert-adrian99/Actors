@@ -10,8 +10,10 @@ import UIKit
 class ActorDetailsViewController: UITableViewController {
 
     // model data
-    var actor: ActorCD!
-    var actorImageView = UIImageView()
+    var actorCD         : ActorCD!
+    var favouriteActorCD: FavouriteActorCD!
+    
+    private var actor   : Actor!
     
     // variables for arranging cells in table view
     // rowsInSection0 represents the number of details displayed about the actor
@@ -21,9 +23,16 @@ class ActorDetailsViewController: UITableViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let isLastCharS = actor.name!.last == "s"
-        title = actor.name! + (isLastCharS ? "' details" : "'s details")
-        actor.filmography?.sort()
+        if actorCD != nil {
+            actor = Actor(actorCD: actorCD)
+        } else {
+            actor = Actor(favActorCD: favouriteActorCD)
+        }
+        
+        let isLastCharS = actor.name.last == "s"
+        title = actor.name + (isLastCharS ? "' details" : "'s details")
+        actor.filmography.sort()
+        
         let image                       = UIImage(named: "background")
         let backgroundImageView         = UIImageView(image: image)
         backgroundImageView.alpha       = CGFloat(0.5)
@@ -48,7 +57,7 @@ class ActorDetailsViewController: UITableViewController {
         
         return section == 0
             ? rowsInSection0
-            : actor.filmography?.count ?? 0
+            : actor.filmography.count
     }
     
     // configure heights for each individual detail cell
@@ -80,7 +89,7 @@ class ActorDetailsViewController: UITableViewController {
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
-                cell.imageView?.image = actor.images != nil && actor.images!.count > 0 ? UIImage(data: actor.images![0]) : UIImage(systemName: "photo")
+                cell.imageView?.image = actor.images.count > 0 ? UIImage(data: actor.images[0]) : UIImage(systemName: "photo")
                 cell.textLabel?.text = actor.name
                 cell.detailTextLabel?.text = "\(actor.age) years"
                 cell.selectionStyle = .none
@@ -101,7 +110,7 @@ class ActorDetailsViewController: UITableViewController {
                 cell.detailTextLabel?.text = ""
                 cell.selectionStyle = .none
             case 5:
-                cell.textLabel?.text = actor.actorDescription
+                cell.textLabel?.text = actor.description
                 cell.textLabel?.numberOfLines = 10
                 cell.textLabel?.lineBreakMode = .byWordWrapping
                 cell.detailTextLabel?.text = ""
@@ -121,7 +130,7 @@ class ActorDetailsViewController: UITableViewController {
                 break
             }
         } else {
-            cell.textLabel?.text = actor.filmography![indexPath.row]
+            cell.textLabel?.text = actor.filmography[indexPath.row]
             cell.detailTextLabel?.text = ""
             cell.selectionStyle = .none
         }
@@ -153,7 +162,8 @@ class ActorDetailsViewController: UITableViewController {
             let editAddActorVC = segue.destination as! EditAddActorViewContoller
             
             // Pass the selected object to the new view controller.
-            editAddActorVC.actor = actor
+            editAddActorVC.actorCD          = actorCD
+            editAddActorVC.favouriteActorCD = favouriteActorCD
         }
     }
 }

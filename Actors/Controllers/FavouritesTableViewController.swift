@@ -1,18 +1,19 @@
 //
-//  ActorsTableViewController.swift
+//  FavouritesTableViewController.swift
 //  Actors
 //
-//  Created by Robert Adrian Bucur on 06/05/2022.
+//  Created by Robert Adrian Bucur on 10/05/2022.
 //
 
 import UIKit
 import CoreData
 
-class ActorsTableViewController: UITableViewController {
+class FavouritesTableViewController: UITableViewController {
     
     // core data
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var frc: NSFetchedResultsController<NSFetchRequestResult>!
+    var entityName: String!
     
     // outlets and actions
     @IBOutlet weak var searchBar: UISearchBar!
@@ -34,14 +35,14 @@ class ActorsTableViewController: UITableViewController {
         
         let selectedItem = tabBarController?.tabBar.selectedItem!
         title = selectedItem?.title
-
+        
         frc = NSFetchedResultsController<NSFetchRequestResult>(fetchRequest: createRequest(withPredicate: nil), managedObjectContext: context, sectionNameKeyPath: "category", cacheName: nil)
         frc.delegate = self
         fetch()
         
         if frc.sections?.count == 0 {
-            let actorRepo  = ActorRepository(xmlFilename: "actors.xml")
-            actorRepo.addActors(to: context)
+            let actorRepo = ActorRepository(xmlFilename: "actors.xml")
+            actorRepo.addFavouriteActors(to: context)
             fetch()
         }
         
@@ -78,7 +79,7 @@ class ActorsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "actorCell", for: indexPath)
 
         // Configure the cell...
-        let actor = frc.object(at: indexPath) as! ActorCD
+        let actor = frc.object(at: indexPath) as! FavouriteActorCD
         cell.textLabel?.text       = actor.name
         cell.detailTextLabel?.text = "\(actor.age) years"
         cell.imageView?.image      = actor.images != nil && actor.images!.count > 0 ? UIImage(data: actor.images![0]) : UIImage(systemName: "photo")
@@ -102,7 +103,7 @@ class ActorsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            let actorCD = frc.object(at: indexPath) as! ActorCD
+            let actorCD = frc.object(at: indexPath) as! FavouriteActorCD
             
             do {
                 context.delete(actorCD)
@@ -124,58 +125,27 @@ class ActorsTableViewController: UITableViewController {
         let cell = sender.superview?.superview?.superview as! UITableViewCell
         
         let indexPath = tableView.indexPath(for: cell)
-        let actorCD = frc.object(at: indexPath!) as! ActorCD
-
-        if actorCD.isFavourite {
-            sender.setImage(UIImage(systemName: "star"), for: .normal)
-        } else {
-            sender.setImage(UIImage(systemName: "star.fill"), for: .normal)
-        }
+        let favActorCD = frc.object(at: indexPath!) as! FavouriteActorCD
         
-        actorCD.isFavourite = !actorCD.isFavourite
+        context.delete(favActorCD)
         
         tableView.reloadData()
         
-        if actorCD.isFavourite {
-            let favFrc = NSFetchedResultsController<NSFetchRequestResult>(fetchRequest: createRequest(withPredicate: nil, entityName: "FavouriteActorCD"), managedObjectContext: context, sectionNameKeyPath: "category", cacheName: nil)
-            
-            do {
-                try favFrc.performFetch()
-            } catch {
-                print(error)
-            }
-            
-            let entity = NSEntityDescription.entity(forEntityName: "FavouriteActorCD", in: context)!
-            let favActorCD = FavouriteActorCD(entity: entity, insertInto: context)
-            favActorCD.name             = actorCD.name
-            favActorCD.age              = actorCD.age
-            favActorCD.category         = actorCD.category
-            favActorCD.cityOfBirth      = actorCD.cityOfBirth
-            favActorCD.phoneNo          = actorCD.phoneNo
-            favActorCD.email            = actorCD.email
-            favActorCD.actorDescription = actorCD.actorDescription
-            favActorCD.website          = actorCD.website
-            favActorCD.filmography      = actorCD.filmography
-            favActorCD.images           = actorCD.images
-            favActorCD.isFavourite      = actorCD.isFavourite
-            
-            do {
-                try context.save()
-            } catch {
-                print(error)
-            }
-        } else {
-            let favFrc = NSFetchedResultsController<NSFetchRequestResult>(fetchRequest: createRequest(withPredicate: actorCD.name!, entityName: "FavouriteActorCD"), managedObjectContext: context, sectionNameKeyPath: "category", cacheName: nil)
-            
-            do {
-                try favFrc.performFetch()
-            } catch {
-                print(error)
-            }
-            
-            let favActorCD = favFrc.sections?[0].objects?[0] as! FavouriteActorCD
-            
-            context.delete(favActorCD)
+        let actorFrc = NSFetchedResultsController<NSFetchRequestResult>(fetchRequest: createRequest(withPredicate: favActorCD.name!, entityName: "ActorCD"), managedObjectContext: context, sectionNameKeyPath: "category", cacheName: nil)
+        
+        do {
+            try actorFrc.performFetch()
+        } catch {
+            print(error)
+        }
+        
+        let actorCD = actorFrc.sections?[0].objects?[0] as! ActorCD
+        actorCD.isFavourite = false
+        
+        do {
+            try context.save()
+        } catch {
+            print(error)
         }
     }
     
@@ -189,14 +159,14 @@ class ActorsTableViewController: UITableViewController {
             
             // Pass the selected object to the new view controller.
             let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
-            actorInfoVC.actorCD = frc.object(at: indexPath!) as? ActorCD
+            actorInfoVC.favouriteActorCD = frc.object(at: indexPath!) as? FavouriteActorCD
         }
     }
 
 }
 
 // MARK: - Search bar delegate
-extension ActorsTableViewController: UISearchBarDelegate {
+extension FavouritesTableViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
@@ -215,7 +185,7 @@ extension ActorsTableViewController: UISearchBarDelegate {
 }
 
 // MARK: - Tab bar Controller Delegate
-extension ActorsTableViewController: UITabBarControllerDelegate {
+extension FavouritesTableViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
@@ -243,14 +213,14 @@ extension ActorsTableViewController: UITabBarControllerDelegate {
 }
 
 // MARK:- Care Data
-extension ActorsTableViewController: NSFetchedResultsControllerDelegate {
+extension FavouritesTableViewController: NSFetchedResultsControllerDelegate {
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         
         tableView.reloadData()
     }
     
-    func createRequest(withPredicate value: String?, entityName: String = "ActorCD") -> NSFetchRequest<NSFetchRequestResult> {
+    func createRequest(withPredicate value: String?, entityName: String = "FavouriteActorCD") -> NSFetchRequest<NSFetchRequestResult> {
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         

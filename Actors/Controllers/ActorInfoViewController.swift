@@ -10,7 +10,10 @@ import UIKit
 class ActorInfoViewController: UIViewController {
     
     // model data
-    var actor   : ActorCD!
+    var actorCD         : ActorCD!
+    var favouriteActorCD: FavouriteActorCD!
+    
+    private var actor: Actor!
     
     // outlets
     @IBOutlet weak var nameLabel     : UILabel!
@@ -29,12 +32,18 @@ class ActorInfoViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let isLastCharS = actor.name?.last == "s"
-        title = actor.name! + (isLastCharS ? "' gallery" : "'s gallery")
+        if actorCD != nil {
+            actor = Actor(actorCD: actorCD)
+        } else {
+            actor = Actor(favActorCD: favouriteActorCD)
+        }
+        
+        let isLastCharS = actor.name.last == "s"
+        title = actor.name + (isLastCharS ? "' gallery" : "'s gallery")
         
         nameLabel.text     = actor.name
         ageLabel.text      = "\(actor.age) years"
-        categoryLabel.text = "Category: " + actor.category!
+        categoryLabel.text = "Category: " + actor.category
         
         collectionView.delegate   = self
         collectionView.dataSource = self
@@ -49,7 +58,8 @@ class ActorInfoViewController: UIViewController {
             let actorDetailVC = segue.destination as! ActorDetailsViewController
             
             // Pass the selected object to the new view controller.
-            actorDetailVC.actor = actor
+            actorDetailVC.actorCD          = actorCD
+            actorDetailVC.favouriteActorCD = favouriteActorCD
         }
     }
 }
@@ -59,7 +69,7 @@ extension ActorInfoViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return actor.images?.count ?? 0
+        return actor.images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -70,7 +80,7 @@ extension ActorInfoViewController: UICollectionViewDelegate, UICollectionViewDat
             cellView.removeFromSuperview()
         }
         
-        let image = UIImage(data: actor.images![indexPath.row])
+        let image = UIImage(data: actor.images[indexPath.row])
         let imageView = UIImageView(image: image)
         imageView.frame = cell.bounds
         imageView.contentMode = .scaleAspectFit

@@ -27,6 +27,7 @@
 		66A6B5552829276700E74712 /* FavouriteActorCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A6B5512829276700E74712 /* FavouriteActorCD+CoreDataProperties.swift */; };
 		66A6B5562829276700E74712 /* ActorCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A6B5522829276700E74712 /* ActorCD+CoreDataClass.swift */; };
 		66A6B5572829276700E74712 /* ActorCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A6B5532829276700E74712 /* ActorCD+CoreDataProperties.swift */; };
+		66AA7C41282A646F00EC0F24 /* FavouritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA7C40282A646E00EC0F24 /* FavouritesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		66A6B5512829276700E74712 /* FavouriteActorCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavouriteActorCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		66A6B5522829276700E74712 /* ActorCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActorCD+CoreDataClass.swift"; sourceTree = "<group>"; };
 		66A6B5532829276700E74712 /* ActorCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActorCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		66AA7C40282A646E00EC0F24 /* FavouritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				662ED1A92825A3250076AFE0 /* ActorsTableViewController.swift */,
+				66AA7C40282A646E00EC0F24 /* FavouritesTableViewController.swift */,
 				662ED1AC2825A34C0076AFE0 /* ActorInfoViewController.swift */,
 				662ED1AF2825A38C0076AFE0 /* ActorDetailsViewController.swift */,
 				662ED1B22825A3C30076AFE0 /* ActorWebsiteViewController.swift */,
@@ -231,6 +234,7 @@
 				662ED1B32825A3C30076AFE0 /* ActorWebsiteViewController.swift in Sources */,
 				662ED1772825A17A0076AFE0 /* AppDelegate.swift in Sources */,
 				662ED1792825A17A0076AFE0 /* SceneDelegate.swift in Sources */,
+				66AA7C41282A646F00EC0F24 /* FavouritesTableViewController.swift in Sources */,
 				662ED19E2825A2740076AFE0 /* Actors.swift in Sources */,
 				66A6B5182826B8C300E74712 /* EditAddActorViewContoller.swift in Sources */,
 				662ED1AA2825A3250076AFE0 /* ActorsTableViewController.swift in Sources */,
