@@ -5,6 +5,8 @@
 **Actors** is a multi-screen application that shows a list of actors grouped by their main category of films, in a `UITableView`. Each actor is displayed in a `UITableViewCell` with some details about them, like profile image, name, age and if the actor is categorized as favourite or not. Also the first screen is a `UITabBarController` with two tabs: one that displays all the actors, and another that lists only the favourites actor, based on user's choice in the first tab. An actor can be set as favourite by pressing the `☆` button by their side in the first tab; therefore if the user presses the star for an actor that is already a favourite, they will be set as not favourite and will be deleted from the list in the *"Favourites"* tab. Same for the Favourites tab. The user can search for a specific actor by their name using the Search bar on top of the table. Furthermore, the user is able to swipe from right to left on an actor to delete them from the list.
 
 | ![](./images/AllActors.png) | ![](./images/FavouriteActors.png) | 
+|:----------:|:-------------:|
+
 
 In the navigation bar there is a `+` button which will present another screen for adding a new actor. In this `ViewController` the user enters all the details about the actor and when all this fields are filled with data and also a profile image is chosen the `Save` button will become enabled so the user can save the new actor in the list. When pressing the photo image, an `ImagePicker` will appear, where from a picture from the photo gallery to be picked. The new actor can be set from this screen wether or not to be a favourite one using the *Is favourite* `Switch`.
 

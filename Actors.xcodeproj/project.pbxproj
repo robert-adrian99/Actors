@@ -55,6 +55,11 @@
 		66A6B5532829276700E74712 /* ActorCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActorCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		66AA7C40282A646E00EC0F24 /* FavouritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTableViewController.swift; sourceTree = "<group>"; };
 		66C37134283559FF00FED06B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		66C3713628367BB000FED06B /* ActorGallery.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ActorGallery.gif; sourceTree = "<group>"; };
+		66C3713728367BB000FED06B /* ActorDetails.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ActorDetails.gif; sourceTree = "<group>"; };
+		66C3713828367BB000FED06B /* AllActors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AllActors.png; sourceTree = "<group>"; };
+		66C3713928367BB000FED06B /* FavouriteActors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FavouriteActors.png; sourceTree = "<group>"; };
+		66C3713A28367BB000FED06B /* NewActor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewActor.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				66C37134283559FF00FED06B /* README.md */,
+				66C3713528367BB000FED06B /* images */,
 				662ED1752825A17A0076AFE0 /* Actors */,
 				662ED1742825A17A0076AFE0 /* Products */,
 			);
@@ -160,6 +166,18 @@
 				66A6B54C28290D7B00E74712 /* ActorRepository.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		66C3713528367BB000FED06B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				66C3713628367BB000FED06B /* ActorGallery.gif */,
+				66C3713728367BB000FED06B /* ActorDetails.gif */,
+				66C3713828367BB000FED06B /* AllActors.png */,
+				66C3713928367BB000FED06B /* FavouriteActors.png */,
+				66C3713A28367BB000FED06B /* NewActor.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
