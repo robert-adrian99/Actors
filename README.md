@@ -2,6 +2,8 @@
 
 ## By Robert-Adrian Bucur
 
+Find the project also on ![GitHub](https://github.com/robert-adrian99/Actors)
+
 **Actors** is a multi-screen application that shows a list of actors grouped by their main category of films, in a `UITableView`. Each actor is displayed in a `UITableViewCell` with some details about them, like profile image, name, age and if the actor is categorized as favourite or not. Also the first screen is a `UITabBarController` with two tabs: one that displays all the actors, and another that lists only the favourites actor, based on user's choice in the first tab. An actor can be set as favourite by pressing the `☆` button by their side in the first tab; therefore if the user presses the star for an actor that is already a favourite, they will be set as not favourite and will be deleted from the list in the *"Favourites"* tab. Same for the Favourites tab. The user can search for a specific actor by their name using the Search bar on top of the table. Furthermore, the user is able to swipe from right to left on an actor to delete them from the list.
 
 | ![](./images/AllActors.png) | ![](./images/FavouriteActors.png) | 
